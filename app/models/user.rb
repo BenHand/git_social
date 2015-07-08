@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.image = auth.info.image
-      binding.pry
+      user.github_url = auth.info.urls.github
+      user.blog = auth.info.urls.blog
+      user.location = auth.raw_info.location
+      user.bio = auth.raw_info.bio
       self.create_github_profile(auth)
     end
   end
