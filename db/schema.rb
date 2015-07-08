@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707172640) do
+ActiveRecord::Schema.define(version: 20150708183658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,21 @@ ActiveRecord::Schema.define(version: 20150707172640) do
 
   add_index "friend_requests", ["user_id"], name: "index_friend_requests_on_user_id", using: :btree
 
+  create_table "github_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "company",      default: "",    null: false
+    t.boolean  "hireable",     default: false, null: false
+    t.integer  "public_repos", default: 0,     null: false
+    t.integer  "public_gists", default: 0,     null: false
+    t.integer  "followers",    default: 0,     null: false
+    t.integer  "following",    default: 0,     null: false
+    t.string   "created",      default: "",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "github_profiles", ["user_id"], name: "index_github_profiles_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -88,6 +103,9 @@ ActiveRecord::Schema.define(version: 20150707172640) do
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.string   "blog",                   default: "", null: false
+    t.string   "location",               default: ""
+    t.text     "bio",                    default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -98,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150707172640) do
   add_foreign_key "forums", "users"
   add_foreign_key "friend_lists", "users"
   add_foreign_key "friend_requests", "users"
+  add_foreign_key "github_profiles", "users"
   add_foreign_key "posts", "forums"
   add_foreign_key "posts", "users"
 end

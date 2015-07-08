@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :forums
   has_many :comments
+  has_many :github_profiles
 
 
   def self.from_omniauth(auth)
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.image = auth.info.image
+      binding.pry
     end
   end
 
