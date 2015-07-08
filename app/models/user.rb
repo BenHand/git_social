@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.image = auth.info.image
       binding.pry
+      self.create_github_profile(auth)
     end
   end
 
