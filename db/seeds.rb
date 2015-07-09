@@ -4,7 +4,7 @@
                 name: Faker::Name.name, email: Faker::Internet.safe_email,
             password: password, password_confirmation: password,
           github_url: 'www.github.com', linkedin_url: 'www.linkedin.com',
-         twitter_url: 'www.twitter.com', facebook_url: 'www.facebook.com'
+         twitter_url: 'www.twitter.com', facebook_url: 'www.facebook.com',
                 blog: 'www.tumblr.com',
             location: "#{Faker::Address.city}, #{Faker::Address.state}",
                  bio: Faker::Lorem.paragraph)

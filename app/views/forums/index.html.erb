@@ -1,6 +1,6 @@
 <h3 class="center-text">Git_Social with Forums</h3>
-<section class="well container">
-   <table class="hoverable">
+<section class="well container hoverable">
+   <table class="bordered">
 
     <thead>
       <tr>
@@ -10,15 +10,23 @@
         <th data-field="post">Last Post</th>
       </tr>
     </thead>
-      <% @forums.each do |forum| %>
-      <tr>
-        <td><%= forum.topic %></td>
-        <td><%= forum.posts.count %></td>
-        <td><%= forum.user.name %></td>
-        <td><%= forum.posts.last.created_at %></td>
-      </tr>
-      <% end %>
     <tbody>
+      <% @forums.each do |forum| %>
+        <tr>
+          <td>
+            <%= link_to forum.topic.titleize,
+                forum_path(forum.id) %>
+          </td>
+          <td><%= forum.posts.count %></td>
+          <td>
+            <%= link_to forum.user.name.titleize,
+                profile_main_path(forum.user.id) %>
+          </td>
+          <td>
+            <%= forum.posts.last.created_at.strftime('%B%e, %Y') %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <br>
