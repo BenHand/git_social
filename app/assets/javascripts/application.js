@@ -1,3 +1,5 @@
+'use strict';
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -17,4 +19,19 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require materialize-sprockets
 //= require_tree .
+
+<script type="text/javascript">
+ WebFontConfig = {
+   google: { families: [ 'Bitter:400,700,400italic:latin' ] }
+ };
+ (function() {
+   var wf = document.createElement('script');
+   wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+     '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+   wf.type = 'text/javascript';
+   wf.async = 'true';
+   var s = document.getElementsByTagName('script')[0];
+   s.parentNode.insertBefore(wf, s);
+ })(); </script>

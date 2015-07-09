@@ -1,42 +1,42 @@
-<section class="well container col-xs-12 col-sm-8 col-sm-offset-2">
-  <h2 class="center-text">Sign in</h2>
+<section class="well container col s12">
+  <h3 class="center-text">Sign in</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   <div class="form-group">
-      <%= f.label :email, class: "col-sm-2 control-label" %>
-      <div class="col-sm-8">
+      <%= f.label :email, class: "col s2 control-label" %>
+      <div class="col s8">
           <%= f.email_field :email, autofocus: true , class: "form-control" %>
       </div>
   </div>
 
   <div class="form-group">
-      <%= f.label :password, class: "col-sm-2 control-label" %>
-      <div class="col-sm-8">
+      <%= f.label :password, class: "col s2 control-label" %>
+      <div class="col s8 offset-s2">
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
   </div>
 
   <% if devise_mapping.rememberable? -%>
   <div class="form-group">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col s8 offset-s2">
           <%= f.check_box :remember_me %> <%= f.label :remember_me %>
       </div>
   </div>
   <% end -%>
 
   <div class="form-group">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-      <%= f.submit "Sign in", class: 'btn btn-primary' %>
+    <div class="col s6 offset-s3">
+      <%= f.submit "Sign in", class: 'btn' %>
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-success' %><br />
+            <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn' %><br />
           <% end -%>
         <% end -%>
     </div>
   </div>
 
   <div class="form-group">
-      <div class="col-sm-6 col-sm-offset-2">
-          <%= render "devise/shared/links", locals: { omni_auth: false } %>
+      <div class="col s6 offset-s3">
+          <%= render "devise/shared/links", locals: { display_link: true } %>
       </div>
   </div>
   <% end %>

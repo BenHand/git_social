@@ -1,6 +1,13 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'materialize';
 //You need to now manually import every other scss file.
+$primary-color: #3F51B5;
+$dark-primary-color: #303F9F;
+$light-primary-color: #C5CAE9;
+$accent-color: #8BC34A;
+
+
 .center-text{
   text-align: center;
 }

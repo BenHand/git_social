@@ -5,11 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--Import materialize.css-->
+   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
   <header>
     <% if current_user %>
-      <%= link_to "#{current_user.name.titleize}" %>
+      <%= link_to "#{current_user.name.titleize}",
+          profile_main_path(current_user.id) %>
       <%= link_to "Log out", destroy_user_session_path, method: 'delete' %>
     <% else %>
       <%= link_to "Login", new_user_session_path %>
@@ -20,5 +24,7 @@
 
 <%= yield %>
 
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>

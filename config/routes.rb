@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
     }
-  get '/users/test', to: 'users#test_show'
+
+  get '/users/:id', to: 'users#profile_main', as: 'profile_main'
   root to: 'forums#index'
 end
