@@ -14,3 +14,22 @@ $accent-color: #8BC34A;
 .well{
   background-color: lighten(#42703C, 60%);
 }
+.logo-font{
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: fantasy;
+}
+nav {
+  a{
+    &:hover{
+      text-decoration: none;
+      color: #EBF4EB;
+    }
+  }
+}
+.border{
+  border: 2px solid #4F8B3D;
+}
+.padding{
+  padding: 5px 5px 5px 5px;
+}

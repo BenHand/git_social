@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :forums
   has_many :comments
-  has_one :github_profiles
+  has_many :github_profiles
 
 
   def self.from_omniauth(auth)

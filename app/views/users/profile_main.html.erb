@@ -1,2 +1,51 @@
-<h2>profile main page</h2>
-<%= @user.name.titleize %>
+<h2><%= @user.name.titleize %></h2>
+<section class="container">
+<div class="row">
+  <div class="col s5 border padding">
+  <%= image_tag(@user.image, size: '100', class: 'responsive-img') %>
+  <br>
+  <%= @user.location %><br>
+  <%= mail_to(@user.email) %>
+
+  <% if @user.github_url.length > 0 %>
+    <br>
+    <b>GitHub: </b>
+    <%= link_to split_url(@user.github_url), @user.github_url %>
+    <br>
+  <% end %>
+  <% if @user.twitter_url.length > 0 %>
+    <b>Twitter: </b>
+    <%= link_to split_url(@user.twitter_url), @user.twitter_url %>
+    <br>
+  <% end %>
+  <% if @user.linkedin_url.length > 0 %>
+    <b>LinkedIn: </b>
+    <%= link_to split_url(@user.linkedin_url), @user.linkedin_url %>
+    <br>
+  <% end %>
+  <% if @user.facebook_url.length > 0 %>
+    <b>Facebook: </b>
+    <%= link_to split_url(@user.facebook_url), @user.facebook_url %>
+    <br>
+  <% end %>
+  <% if @user.blog.length > 0 %>
+    <b>Blog: </b>
+    <%= link_to split_url(@user.blog), @user.blog %>
+    <br>
+  <% end %>
+  </div>
+  <div class="col s5 offset-s1 hoverable">
+    <b>About me: </b><%= @user.bio %><br><br>
+    <b>Git Stats</b><br>
+    <b>  Public Repos: </b> <%= @github_profiles[0].public_repos %><br>
+    <b>  Public Gists: </b> <%= @github_profiles[0].public_gists %><br>
+    <b>  Following: </b> <%= @github_profiles[0].following %><br>
+    <b>  Followers: </b> <%= @github_profiles[0].followers %><br>
+    <b>  Member since: </b>
+      <%= Date.parse(@github_profiles[0].created).strftime('%B %e, %Y') %><br>
+  </div>
+</div>
+<div class="col s12 border">
+
+</div>
+</section>
