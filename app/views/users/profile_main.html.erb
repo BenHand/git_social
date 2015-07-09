@@ -37,15 +37,36 @@
   <div class="col s5 offset-s1 hoverable">
     <b>About me: </b><%= @user.bio %><br><br>
     <b>Git Stats</b><br>
-    <b>  Public Repos: </b> <%= @github_profiles[0].public_repos %><br>
-    <b>  Public Gists: </b> <%= @github_profiles[0].public_gists %><br>
-    <b>  Following: </b> <%= @github_profiles[0].following %><br>
-    <b>  Followers: </b> <%= @github_profiles[0].followers %><br>
+    <b>  Public Repos: </b> <%= @github_profile.public_repos %><br>
+    <b>  Public Gists: </b> <%= @github_profile.public_gists %><br>
+    <b>  Following: </b> <%= @github_profile.following %><br>
+    <b>  Followers: </b> <%= @github_profile.followers %><br>
     <b>  Member since: </b>
-      <%= Date.parse(@github_profiles[0].created).strftime('%B %e, %Y') %><br>
+      <%= Date.parse(@github_profile.created).strftime('%B %e, %Y') %><br>
   </div>
 </div>
-<div class="col s12 border">
+<div class="row">
+  <hr>
+  <% @repos.each do |repo| %>
+    <div class="col s6 hoverable">
+      <b><%= link_to repo[:name].titleize, repo[:url] %></b><br>
+      <b>Description: </b><br>
+        <%= truncate(repo[:description], length: 69) %><br>
+      <b>Language: </b>
+        <%= repo[:language] %><br>
+      <b>Stars: </b>
+        <%= repo[:stars] %><br>
+      <b>Forks: </b>
+        <%= repo[:forks] %><br>
+      <b>Watchers: </b>
+        <%= repo[:watchers] %><br>
+      <b>Created: </b>
+        <%= repo[:created].strftime('%B %e, %Y') %><br>
+      <b>Updated: </b>
+        <%= repo[:updated].strftime('%B %e, %Y') %><br>
+      <hr>
+    </div>
 
+  <% end %>
 </div>
 </section>
