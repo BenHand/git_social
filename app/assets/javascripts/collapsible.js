@@ -1,3 +1,4 @@
+'use strict';
 (function ($) {
   $.fn.collapsible = function(options) {
     var defaults = {
@@ -13,7 +14,7 @@
 
       var $panel_headers = $(this).find('> li > .collapsible-header');
 
-      var collapsible_type = $this.data("collapsible");
+      var collapsible_type = $this.data('collapsible');
 
       // Turn off any existing event handlers
        $this.off('click.collapse', '.collapsible-header');

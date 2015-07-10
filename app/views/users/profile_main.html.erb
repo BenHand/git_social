@@ -1,75 +1,130 @@
-<h3 class="center-text"><%= @user.name.titleize %></h3>
 <section class="container well">
-<div class="row">
-  <div class="col s5">
-  <%= image_tag(@user.image, size: '100', class: 'responsive-img') %>
-  <br>
-  <%= @user.location %><br>
-  <%= mail_to(@user.email) %>
-
-  <% if @user.github_url.length > 0 %>
-    <br>
-    <b>GitHub: </b>
-    <%= link_to split_url(@user.github_url), @user.github_url %>
-    <br>
-  <% end %>
-  <% if @user.twitter_url.length > 0 %>
-    <b>Twitter: </b>
-    <%= link_to split_url(@user.twitter_url), @user.twitter_url %>
-    <br>
-  <% end %>
-  <% if @user.linkedin_url.length > 0 %>
-    <b>LinkedIn: </b>
-    <%= link_to split_url(@user.linkedin_url), @user.linkedin_url %>
-    <br>
-  <% end %>
-  <% if @user.facebook_url.length > 0 %>
-    <b>Facebook: </b>
-    <%= link_to split_url(@user.facebook_url), @user.facebook_url %>
-    <br>
-  <% end %>
-  <% if @user.blog.length > 0 %>
-    <b>Blog: </b>
-    <%= link_to split_url(@user.blog), @user.blog %>
-    <br>
-  <% end %>
-  </div>
-  <div class="col s5 offset-s1">
-    <b>About me: </b><%= @user.bio %><br><br>
-    <b>Git Stats</b><br>
-    <b>  Public Repos: </b> <%= @github_profile.public_repos %><br>
-    <b>  Public Gists: </b> <%= @github_profile.public_gists %><br>
-    <b>  Following: </b> <%= @github_profile.following %><br>
-    <b>  Followers: </b> <%= @github_profile.followers %><br>
-    <b>  Member since: </b>
-      <%= Date.parse(@github_profile.created).strftime('%B %e, %Y') %><br>
-  </div>
-</div>
-<div class="row">
-  <hr>
-  <% @repos.each do |repo| %>
-    <div class="col s6">
+  <div class="row">
+  <div class="col s12 m8 offset-m2 l6">
       <ul class="collection with-header border">
-        <li class="collection-header center-text"><h6>
-          <b><%= link_to repo[:name].titleize, repo[:url] %></b></h6>
+
+        <li class="collection-header left-align">
+          <%= image_tag(@user.image, size: '100') %>
+          <h5>
+            <%= @user.name.titleize%>
+          </h5>
         </li>
-        <li class="collection-item"><b>Description: </b>
-        <%= repo[:description] %></li>
-        <li class="collection-item"><b>Language: </b>
-        <%= repo[:language] %></li>
-        <li class="collection-item"><b>Stars: </b>
-        <%= repo[:stars] %></li>
-        <li class="collection-item"><b>Forks: </b>
-        <%= repo[:forks] %></li>
-        <li class="collection-item"><b>Watchers: </b>
-        <%= repo[:watchers] %></li>
-        <li class="collection-item"><b>Created: </b>
-        <%= repo[:created].strftime('%B %e, %Y') %></li>
-        <li class="collection-item"><b>Updated: </b>
-        <%= repo[:updated].strftime('%B %e, %Y') %></li>
+
+        <li class="collection-item">
+          <b>Location: </b>
+          <%= @user.location %>
+        </li>
+
+        <li class="collection-item">
+          <b>Email: </b>
+          <%= mail_to(@user.email) %>
+        </li>
+
+        <% if @user.github_url.length > 0 %>
+          <li class="collection-item hoverable">
+            <b>GitHub: </b>
+
+            <%= link_to split_url(@user.github_url), @user.github_url %>
+          </li>
+        <% end %>
+
+        <% if @user.twitter_url.length > 0 %>
+          <li class="collection-item">
+            <b>Twitter: </b>
+            <%= link_to split_url(@user.twitter_url), @user.twitter_url %>
+          </li>
+        <% end %>
+
+        <% if @user.linkedin_url.length > 0 %>
+          <li class="collection-item">
+            <b>Linkedin: </b>
+            <%= link_to split_url(@user.linkedin_url),
+                @user.linkedin_url %>
+          </li>
+        <% else %>
+          <li class="collection-item">
+          <b>Linkedin not provided</b>
+          </li>
+        <% end %>
+
+        <% if @user.facebook_url.length > 0 %>
+          <li class="collection-item">
+            <b>Facebook: </b>
+            <%= link_to split_url(@user.facebook_url),
+                @user.facebook_url %>
+          </li>
+        <% end %>
+
+        <% if @user.blog.length > 0 %>
+          <li class="collection-item">
+            <b>Blog: </b>
+            <%= link_to split_url(@user.blog), @user.blog %>
+          </li>
+        <% end %>
       </ul>
-      <!-- <hr> -->
+  </div>
+    <div class="col s12 m8 offset-m2 l6">
+      <ul class="collection with-header border">
+        <li class="collection-header">
+          <h5>About Me <i class="red-text">&&</i> GitHub Stats</h5>
+        </li>
+
+        <li class="collection-item bio-box valign-wrapper">
+          <p class="valign"><%= @user.bio %></p>
+        </li>
+
+        <li class="collection-item">
+          <b>  Public Repos: </b> <%= @github_profile.public_repos %>
+        </li>
+
+        <li class="collection-item">
+          <b>  Public Gists: </b> <%= @github_profile.public_gists %>
+        </li>
+
+        <li class="collection-item">
+          <b>  Following: </b> <%= @github_profile.following %>
+        </li>
+
+        <li class="collection-item">
+          <b>  Followers: </b> <%= @github_profile.followers %>
+        </li>
+
+        <li class="collection-item">
+          <b>  Member since: </b>
+          <%= Date.parse(@github_profile.created).strftime('%B %e, %Y') %>
+        </li>
+      </ul>
     </div>
-  <% end %>
-</div>
+  </div>
+  <div class="row">
+    <hr>
+    <% @repos.each do |repo| %>
+      <div class="col s12 m8 offset-m2 l6">
+        <ul class="collection with-header border">
+          <li class="collection-header center-text"><h6>
+            <b><%= link_to repo[:name].titleize, repo[:url] %></b></h6>
+          </li>
+          <% if repo[:description] != "" %>
+            <li class="collection-item">
+              <%= truncate(repo[:description], length: 36) %></li>
+          <% else %>
+            <li class="collection-item">
+              No description given.</li>
+          <% end %>
+          <li class="collection-item"><b>Language: </b>
+            <%= repo[:language] %></li>
+          <li class="collection-item"><b>Stars: </b>
+            <%= repo[:stars] %></li>
+          <li class="collection-item"><b>Forks: </b>
+            <%= repo[:forks] %></li>
+          <li class="collection-item"><b>Watchers: </b>
+            <%= repo[:watchers] %></li>
+          <li class="collection-item"><b>Created: </b>
+            <%= repo[:created].strftime('%B %e, %Y') %></li>
+          <li class="collection-item"><b>Updated: </b>
+            <%= repo[:updated].strftime('%B %e, %Y') %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </section>

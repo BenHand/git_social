@@ -2,11 +2,6 @@
 @import 'bootstrap';
 @import 'materialize';
 //You need to now manually import every other scss file.
-$primary-color: #3F51B5;
-$dark-primary-color: #303F9F;
-$light-primary-color: #C5CAE9;
-$accent-color: #8BC34A;
-
 
 .center-text{
   text-align: center;
@@ -32,4 +27,11 @@ nav {
 }
 hr{
   border-color: #4F8B3D;
+}
+.profile-header{
+  max-width: 50%;
+  margin-right: 0;
+}
+.bio-box{
+  min-height: 185px;
 }
