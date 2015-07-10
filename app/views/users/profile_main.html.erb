@@ -23,8 +23,11 @@
         <% if @user.github_url.length > 0 %>
           <li class="collection-item hoverable">
             <b>GitHub: </b>
-
             <%= link_to split_url(@user.github_url), @user.github_url %>
+          </li>
+        <% else %>
+          <li class="collection-item">
+            <b>GitHub not provided</b>
           </li>
         <% end %>
 
@@ -32,6 +35,10 @@
           <li class="collection-item">
             <b>Twitter: </b>
             <%= link_to split_url(@user.twitter_url), @user.twitter_url %>
+          </li>
+        <% else %>
+          <li class="collection-item">
+            <b>Twitter not provided</b>
           </li>
         <% end %>
 
@@ -43,7 +50,7 @@
           </li>
         <% else %>
           <li class="collection-item">
-          <b>Linkedin not provided</b>
+            <b>Linkedin not provided</b>
           </li>
         <% end %>
 
@@ -53,12 +60,20 @@
             <%= link_to split_url(@user.facebook_url),
                 @user.facebook_url %>
           </li>
+        <% else %>
+          <li class="collection-item">
+            <b>Facebook not provided</b>
+          </li>
         <% end %>
 
         <% if @user.blog.length > 0 %>
           <li class="collection-item">
             <b>Blog: </b>
             <%= link_to split_url(@user.blog), @user.blog %>
+          </li>
+        <% else %>
+          <li class="collection-item">
+            <b>Blog not provided</b>
           </li>
         <% end %>
       </ul>
@@ -98,33 +113,61 @@
   </div>
   <div class="row">
     <hr>
+    <% counter = 0 %>
     <% @repos.each do |repo| %>
       <div class="col s12 m8 offset-m2 l6">
         <ul class="collection with-header border">
-          <li class="collection-header center-text"><h6>
-            <b><%= link_to repo[:name].titleize, repo[:url] %></b></h6>
+          <li class="collection-header repo-title valign-wrapper">
+            <h5>
+              <b class="valign">
+                <%= link_to repo[:name].titleize, repo[:url] %>
+              </b>
+            </h5>
           </li>
-          <% if repo[:description] != "" %>
+
+          <% if repo[:description] != nil && repo[:description] != "" %>
             <li class="collection-item">
               <%= truncate(repo[:description], length: 36) %></li>
           <% else %>
             <li class="collection-item">
-              No description given.</li>
+              No description given.
+            </li>
           <% end %>
+
           <li class="collection-item"><b>Language: </b>
-            <%= repo[:language] %></li>
-          <li class="collection-item"><b>Stars: </b>
-            <%= repo[:stars] %></li>
-          <li class="collection-item"><b>Forks: </b>
-            <%= repo[:forks] %></li>
-          <li class="collection-item"><b>Watchers: </b>
-            <%= repo[:watchers] %></li>
+            <%= repo[:language] %>
+          </li>
+
           <li class="collection-item"><b>Created: </b>
-            <%= repo[:created].strftime('%B %e, %Y') %></li>
+            <%= repo[:created].strftime('%B %e, %Y') %>
+          </li>
+
           <li class="collection-item"><b>Updated: </b>
-            <%= repo[:updated].strftime('%B %e, %Y') %></li>
+            <%= repo[:updated].strftime('%B %e, %Y') %>
+          </li>
+
+      <!-- section for stars / watching / fork count -->
+          <li class="collection-item valign-wrapper">
+            <i class="material-icons small valign
+                      right-margin icon-color">
+              visibility
+            </i>
+              <%= repo[:watchers] %>
+            <i class="material-icons small valign
+                      left-pad right-margin icon-color">
+              stars
+            </i>
+              <%= repo[:stars] %>
+            <i class="material-icons small valign
+                      left-pad right-margin icon-color">
+              call_split
+            </i>
+              <%= repo[:forks] %>
+          </li>
+
         </ul>
       </div>
+    <% counter += 1 %>
     <% end %>
   </div>
 </section>
