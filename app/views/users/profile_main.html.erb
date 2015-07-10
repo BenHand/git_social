@@ -1,7 +1,7 @@
-<h2><%= @user.name.titleize %></h2>
-<section class="container">
+<h3 class="center-text"><%= @user.name.titleize %></h3>
+<section class="container well">
 <div class="row">
-  <div class="col s5 border padding">
+  <div class="col s5">
   <%= image_tag(@user.image, size: '100', class: 'responsive-img') %>
   <br>
   <%= @user.location %><br>
@@ -34,7 +34,7 @@
     <br>
   <% end %>
   </div>
-  <div class="col s5 offset-s1 hoverable">
+  <div class="col s5 offset-s1">
     <b>About me: </b><%= @user.bio %><br><br>
     <b>Git Stats</b><br>
     <b>  Public Repos: </b> <%= @github_profile.public_repos %><br>
@@ -48,25 +48,28 @@
 <div class="row">
   <hr>
   <% @repos.each do |repo| %>
-    <div class="col s6 hoverable">
-      <b><%= link_to repo[:name].titleize, repo[:url] %></b><br>
-      <b>Description: </b><br>
-        <%= truncate(repo[:description], length: 69) %><br>
-      <b>Language: </b>
-        <%= repo[:language] %><br>
-      <b>Stars: </b>
-        <%= repo[:stars] %><br>
-      <b>Forks: </b>
-        <%= repo[:forks] %><br>
-      <b>Watchers: </b>
-        <%= repo[:watchers] %><br>
-      <b>Created: </b>
-        <%= repo[:created].strftime('%B %e, %Y') %><br>
-      <b>Updated: </b>
-        <%= repo[:updated].strftime('%B %e, %Y') %><br>
-      <hr>
+    <div class="col s6">
+      <ul class="collection with-header border">
+        <li class="collection-header center-text"><h6>
+          <b><%= link_to repo[:name].titleize, repo[:url] %></b></h6>
+        </li>
+        <li class="collection-item"><b>Description: </b>
+        <%= repo[:description] %></li>
+        <li class="collection-item"><b>Language: </b>
+        <%= repo[:language] %></li>
+        <li class="collection-item"><b>Stars: </b>
+        <%= repo[:stars] %></li>
+        <li class="collection-item"><b>Forks: </b>
+        <%= repo[:forks] %></li>
+        <li class="collection-item"><b>Watchers: </b>
+        <%= repo[:watchers] %></li>
+        <li class="collection-item"><b>Created: </b>
+        <%= repo[:created].strftime('%B %e, %Y') %></li>
+        <li class="collection-item"><b>Updated: </b>
+        <%= repo[:updated].strftime('%B %e, %Y') %></li>
+      </ul>
+      <!-- <hr> -->
     </div>
-
   <% end %>
 </div>
 </section>
