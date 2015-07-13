@@ -1,0 +1,17 @@
+<li>
+  <%= link_to "Forums", forums_path %>
+</li>
+<% if current_user %>
+  <li>
+    <%= link_to "#{current_user.name.titleize}",
+        profile_main_path(current_user.id) %>
+  </li>
+  <li>
+    <%= button_to "Log out", destroy_user_session_path,
+         method: :delete, class: 'btn' %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "Login", new_user_session_path %>
+  </li>
+<% end %>

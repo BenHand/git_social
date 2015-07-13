@@ -11,29 +11,19 @@
 <body>
   <header>
     <nav>
-    <div class="nav-wrapper light-green darken-3">
-      <a href="/" class="brand-logo logo-font">Git_Social</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Forums", forums_path %></li>
-        <% if current_user %>
-          <li>
-            <%= link_to "#{current_user.name.titleize}",
-                profile_main_path(current_user.id) %>
-          </li>
-          <li>
-            <%= link_to "Log out",
-                destroy_user_session_path(current_user.id),
-                method: 'delete' %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "Login", new_user_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-
+      <div class="nav-wrapper light-green darken-3">
+        <a href="/" class="brand-logo logo-font">Git_Social</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <%= render partial: 'shared/navlinks' %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <%= render partial: 'shared/navlinks' %>
+        </ul>
+      </div>
+    </nav>
   </header>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
