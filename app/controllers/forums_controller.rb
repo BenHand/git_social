@@ -6,6 +6,7 @@ class ForumsController < ApplicationController
   end
 
   def show
+    @posts = Post.where(forum_id: params[:id])
   end
 
   def new

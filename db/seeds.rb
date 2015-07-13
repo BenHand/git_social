@@ -7,7 +7,7 @@
          twitter_url: 'www.twitter.com', facebook_url: 'www.facebook.com',
                 blog: 'www.tumblr.com',
             location: "#{Faker::Address.city}, #{Faker::Address.state}",
-                 bio: Faker::Lorem.paragraph)
+                 bio: Faker::Lorem.paragraph, image: "https://38.media.tumblr.com/avatar_951b22788b15_128.png")
 
   4.times do
     forum = Forum.create(topic: Faker::Company.bs, user_id: user.id)
