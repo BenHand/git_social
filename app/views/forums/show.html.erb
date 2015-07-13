@@ -4,7 +4,7 @@
     <div class="row well">
       <div class="col s2 hide-on-small-only">
         <%= image_tag(post.user.image, size: '75',
-                      class: 'circle responsive-img') %><br>
+                      class: 'responsive-img') %><br>
         <%= post.created_at.strftime('%B%e, %Y') %>
       </div>
       <div class="col s12 m9 flow-text">
@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col s1 offset-s5 hide-on-small-only">
           <%= image_tag(comment.user.image, size: '50',
-                    class: 'circle responsive-img') %>
+                    class: 'responsive-img') %>
           </div>
           <div class="col s6 well pull-right">
             <%= comment.body %><br>

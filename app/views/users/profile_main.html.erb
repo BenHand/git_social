@@ -5,8 +5,12 @@
 
         <li class="collection-header left-align">
           <%= image_tag(@user.image, size: '100') %>
+          <% if current_user.id == @user.id %>
+            <%= link_to"<i class='material-icons right'>settings
+                </i>".html_safe, edit_profile_path %>
+          <% end %>
           <h5>
-            <%= @user.name.titleize%>
+            <%= @user.name.titleize %>
           </h5>
         </li>
 

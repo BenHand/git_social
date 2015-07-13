@@ -1,0 +1,49 @@
+<section class='container'>
+  <h5><%= current_user.name.titleize %></h5>
+  <div class="row well">
+    <div class="col s12 m6">
+      <%= form_for update_profile_path do |f| %>
+        <div class="input-field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="input-field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="input-field">
+          <%= f.label :location %>
+          <%= f.text_field :location %>
+        </div>
+        <div class="input-field">
+          <%= f.label :About_You %>
+          <%= f.text_area :bio, id: 'textarea1',
+              class: 'materialize-textarea' %>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="input-field">
+          <%= f.label :github %>
+          <%= f.text_field :github_url %>
+        </div>
+        <div class="input-field">
+          <%= f.label :linkedin %>
+          <%= f.text_field :linkedin_url %>
+        </div>
+        <div class="input-field">
+          <%= f.label :twitter %>
+          <%= f.text_field :twitter_url %>
+        </div>
+        <div class="input-field">
+          <%= f.label :facebook %>
+          <%= f.text_field :facebook_url %>
+        </div>
+        <div class="input-field">
+          <%= f.label :blog %>
+          <%= f.text_field :blog_url %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

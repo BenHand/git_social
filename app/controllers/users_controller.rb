@@ -19,4 +19,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_profile
+    @users = User.where(id: current_user.id)
+  end
+
 end
