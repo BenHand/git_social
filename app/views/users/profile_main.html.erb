@@ -127,7 +127,22 @@
 
           <% if repo[:description] != nil && repo[:description] != "" %>
             <li class="collection-item">
-              <%= truncate(repo[:description], length: 36) %></li>
+              <b>Description: </b>
+              <%= link_to truncate(repo[:description], length: 36),
+                  "#modal#{counter}", class: 'modal-trigger' %>
+              <div id="modal<%= "#{counter}" %>"
+                   class="modal bottom-sheet well">
+                <div class="modal-content">
+                  <h4><%= repo[:name].titleize %></h4>
+                  <p><%= repo[:description] %></p>
+                </div>
+                <div class="modal-footer">
+                  <%= link_to "Close", "#!",
+                    class: "modal-action modal-close btn-flat waves-effect
+                            waves-light pull-right" %>
+                </div>
+              </div>
+            </li>
           <% else %>
             <li class="collection-item">
               No description given.
@@ -149,20 +164,23 @@
       <!-- section for stars / watching / fork count -->
           <li class="collection-item valign-wrapper">
             <i class="material-icons small valign
-                      right-margin icon-color">
+                      right-margin icon-color tooltipped"
+                      data-tooltip="Stars">
               stars
             </i>
-              <%= repo[:watchers] %>
+            <%= repo[:stars] %>
             <i class="material-icons small valign
-                      left-pad right-margin icon-color">
+                      left-pad right-margin icon-color
+                      tooltipped" data-tooltip="Watchers">
               visibility
             </i>
-              <%= repo[:stars] %>
+            <%= repo[:watchers] %>
             <i class="material-icons small valign
-                      left-pad right-margin icon-color">
+                      left-pad right-margin icon-color tooltipped"
+                      data-tooltip="Forks">
               call_split
             </i>
-              <%= repo[:forks] %>
+            <%= repo[:forks] %>
           </li>
 
         </ul>
