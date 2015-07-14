@@ -25,10 +25,11 @@
       </div>
     </nav>
   </header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <p class="notice center-text"><%= notice %></p>
+  <p class="alert center-text"><%= alert %></p>
 
 <%= yield %>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <%= javascript_include_tag 'bin/materialize.min.js' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

@@ -9,7 +9,7 @@ Devise.setup do |config|
   config.expire_all_remember_me_on_sign_out = true
   config.password_length = 8..72
   config.reset_password_within = 6.hours
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']

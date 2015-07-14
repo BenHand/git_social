@@ -18,7 +18,7 @@
       </div>
 
       <div class="col s12 m9 flow-text">
-        <%= link_to post.title.titleize, post_path(post.id) %><br>
+        <b><%= post.title.titleize %></b><br>
         <%= post.body %><br>
         <%= link_to post.user.name,
             profile_main_path(post.user.id), class: 'pull-right' %>
