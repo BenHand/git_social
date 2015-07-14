@@ -2,47 +2,49 @@
   <h5><%= current_user.name.titleize %></h5>
   <div class="row well">
     <div class="col s12 m6">
-      <%= form_for update_profile_path do |f| %>
+      <%= form_for update_profile_path, url: update_profile_path,
+          method: :put do |f| %>
         <div class="input-field">
           <%= f.label :name %>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, value: @users.name %>
         </div>
         <div class="input-field">
           <%= f.label :email %>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, value: @users.email %>
         </div>
 
         <div class="input-field">
           <%= f.label :location %>
-          <%= f.text_field :location %>
+          <%= f.text_field :location, value: @users.location %>
         </div>
         <div class="input-field">
           <%= f.label :About_You %>
           <%= f.text_area :bio, id: 'textarea1',
-              class: 'materialize-textarea' %>
+              class: 'materialize-textarea', value: @users.bio %>
         </div>
       </div>
       <div class="col s12 m6">
         <div class="input-field">
-          <%= f.label :github %>
-          <%= f.text_field :github_url %>
-        </div>
-        <div class="input-field">
           <%= f.label :linkedin %>
-          <%= f.text_field :linkedin_url %>
+          <%= f.text_field :linkedin_url, value: @users.linkedin_url %>
         </div>
         <div class="input-field">
           <%= f.label :twitter %>
-          <%= f.text_field :twitter_url %>
+          <%= f.text_field :twitter_url, value: @users.twitter_url %>
         </div>
         <div class="input-field">
           <%= f.label :facebook %>
-          <%= f.text_field :facebook_url %>
+          <%= f.text_field :facebook_url, value: @users.facebook_url %>
         </div>
         <div class="input-field">
           <%= f.label :blog %>
-          <%= f.text_field :blog_url %>
+          <%= f.text_field :blog, value: @users.blog %>
         </div>
+      </div>
+      <div class="col s12">
+        <%= f.submit "Save", class: "btn green" %>
+        <%= button_to "Discard", profile_main_path(current_user.id),
+            class: "btn red right" %>
       </div>
     <% end %>
   </div>

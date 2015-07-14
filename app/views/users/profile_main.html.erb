@@ -132,7 +132,7 @@
           <% if repo[:description] != nil && repo[:description] != "" %>
             <li class="collection-item">
               <b>Description: </b>
-              <%= link_to truncate(repo[:description], length: 36),
+              <%= link_to truncate(repo[:description], length: 29),
                   "#modal#{counter}", class: 'modal-trigger' %>
               <div id="modal<%= "#{counter}" %>"
                    class="modal bottom-sheet well">

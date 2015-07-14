@@ -20,7 +20,19 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
-    @users = User.where(id: current_user.id)
+    @users = User.find(current_user.id)
+  end
+
+  def update_profile
+    user = User.find(current_user.id).update_attributes!(user_params)
+    redirect_to profile_main_path(current_user.id)
+  end
+
+private
+
+  def user_params
+    params.require("/users/profile/update").permit(:name, :email, :bio, :blog, :location,
+                         :facebook_url, :twitter_url, :linkedin_url)
   end
 
 end
