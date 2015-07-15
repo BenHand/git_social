@@ -6,6 +6,7 @@ class ForumsController < ApplicationController
   end
 
   def show
+    @forum = Forum.find(params[:id])
     @posts = Post.where(forum_id: params[:id])
     @comment = Comment.new
     @post = Post.new
@@ -59,6 +60,6 @@ class ForumsController < ApplicationController
     end
 
     def forum_params
-      params.require(:forum).permit(:topic, :user_id)
+      params.require("/forums/new").permit(:topic, :user_id)
     end
 end
