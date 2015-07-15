@@ -7,6 +7,7 @@
       <% if @forum_results.count > 0 %>
         <% @forum_results.each do |forum| %>
           <%= link_to forum.topic.titleize, forum_path(forum.id) %>
+          <%= forum.posts.count %>
         <% end %>
       <% else %>
         <div>0 topics found</div>
@@ -14,14 +15,20 @@
     </div>
     <div class="col s12">
       <% if @post_results.count > 0 %>
-        <%= @post_results.first.title %>
+        <% @post_results.each do |post| %>
+          <%= link_to post.title, forum_path(post.forum.id) %>
+          <%= post.body %>
+        <% end %>
       <% else %>
         <div>0 posts found</div>
       <% end %>
     </div>
     <div class="col s12">
       <% if @user_results.count > 0 %>
-        <%= @user_results.first.name %>
+        <% @user_results.each do |user| %>
+          <%= link_to user.name, profile_main_path(user.id) %>
+          <%= link_to user.github_url, user.github_url %>
+        <% end %>
       <% else %>
         <div>0 users found</div>
       <% end %>
