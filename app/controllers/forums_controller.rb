@@ -21,7 +21,7 @@ class ForumsController < ApplicationController
 
   def create
     @forum = Forum.new(forum_params)
-
+    @forum.user_id = current_user.id
     respond_to do |format|
       if @forum.save
         format.html { redirect_to @forum, notice: 'Forum was successfully created.' }

@@ -74,20 +74,21 @@
     </div>
     <% if post.comments.count > 0 %>
     <div class="row">
-      <ul class="collapsible pull-right"
+      <ul class="collapsible col s8 offset-s2"
           data-collapsible="expandable">
         <li>
-          <div class="collapsible-header">
+          <div class="collapsible-header center-text">
             <b>Comments: </b><%= post.comments.count %>
           </div>
           <% post.comments.each do |comment| %>
-            <div class="row collapsible-body well collapsible-min-width">
-              <div class="col s1 hide-on-small-only">
-              <%= image_tag(comment.user.image, size: '50') %>
-              <%= link_to comment.user.name.split(" ").first,
-                  profile_main_path(comment.user.id) %><br>
+            <div class="row collapsible-body well">
+              <div class="col s2 hide-on-small-only">
+                <%= image_tag(comment.user.image, size: '50') %>
+                <%= link_to comment.user.name.split(" ").first,
+                    profile_main_path(comment.user.id) %><br>
+                <%= comment.created_at.strftime('%-m-%d-%y') %>
               </div>
-              <div class="col s10 offset-s1">
+              <div class="col s9 offset-s1">
                 <%= comment.body %><br>
                 <p class="pull-right hide-on-med-and-up">
                   <%= link_to comment.user.name,
