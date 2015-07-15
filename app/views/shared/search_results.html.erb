@@ -5,7 +5,9 @@
   <div class="row">
     <div class="col s12">
       <% if @forum_results.count > 0 %>
-        <%= @forum_results.first.topic %>
+        <% @forum_results.each do |forum| %>
+          <%= link_to forum.topic.titleize, forum_path(forum.id) %>
+        <% end %>
       <% else %>
         <div>0 topics found</div>
       <% end %>
