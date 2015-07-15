@@ -6,4 +6,17 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     profile_main_path(current_user.id)
   end
+
+  def search_results
+    @forum_results = Forum.where("lower(topic) LIKE ?", "%#{params[:search].downcase}%")
+    @post_results = Post.where("lower(title) LIKE ? OR lower(body) LIKE ?",
+                              "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+    @user_results = User.where("lower(name) LIKE ?", "%#{params[:search].downcase}%" )
+    render 'shared/search_results'
+  end
+
+  def search_page
+    render 'shared/search_page'
+  end
+
 end

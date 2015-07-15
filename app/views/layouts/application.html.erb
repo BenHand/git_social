@@ -10,19 +10,24 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav class='row'>
       <div class="nav-wrapper light-green darken-3">
         <a href="/" class="brand-logo logo-font">Git_Social</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse">
           <i class="material-icons">menu</i>
         </a>
+          <div class="hide-on-med-and-down">
+            <%= render partial: 'shared/search' %>
+          </div>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <%= render partial: 'shared/navlinks' %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to 'Search', search_page_path %></li>
           <%= render partial: 'shared/navlinks' %>
         </ul>
       </div>
+
     </nav>
   </header>
   <p class="notice center-text"><%= notice %></p>

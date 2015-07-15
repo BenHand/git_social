@@ -6,9 +6,33 @@
         <b>Posts: </b><%= @posts.count %>
         <b>Comments: </b><%= total_comments(@posts) %>
       </p>
+      <div class="row center-text">
+        <%= link_to "New Post", "#modalA", class: 'modal-trigger btn green' %>
+      </div>
+      <div id="modalA"
+           class="modal bottom-sheet well">
+        <div class="modal-content">
+          <%= form_for @post,
+              url: create_post_path(@posts[0].forum.id) do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title, autofocus: true %>
+            <%= f.label :body %>
+            <%= f.text_area :body %>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-action modal-close btn-flat waves-effect
+                         waves-light pull-right green white-text"
+                         type="submit" name="action">Post</button>
+          <%= link_to "Discard", "#!",
+            class: "modal-action modal-close btn-flat waves-effect
+                    waves-light pull-left red white-text" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
     </div>
   </div>
-  <% counter = 0 %>
+  <% counter = 1 %>
   <% @posts.each do |post| %>
     <div class="row well">
       <div class="col s2 hide-on-small-only">
@@ -24,7 +48,7 @@
             profile_main_path(post.user.id), class: 'pull-right' %>
       </div>
       <div>
-        <%= link_to "<i class='glyphicon glyphicon-share-alt pull-right'></i>".html_safe, "#modal#{counter}", class: 'modal-trigger' %>
+        <%= link_to "<i class='glyphicon glyphicon-comment pull-right'></i>".html_safe, "#modal#{counter}", class: 'modal-trigger' %>
       </div>
       <div id="modal<%= "#{counter}" %>"
            class="modal bottom-sheet well">
@@ -48,11 +72,11 @@
     <% if post.comments %>
       <% post.comments.each do |comment| %>
         <div class="row">
-          <div class="col s1 offset-s5 hide-on-small-only">
+          <div class="col s1 offset-s3 hide-on-small-only">
           <%= image_tag(comment.user.image, size: '50',
                     class: 'responsive-img') %>
           </div>
-          <div class="col s6 well pull-right">
+          <div class="col s8 well pull-right">
             <%= comment.body %><br>
             <p class="pull-right"><%= link_to comment.user.name,
               profile_main_path(comment.user.id) %></p>
@@ -61,5 +85,6 @@
       <% end %>
     <% end %>
     <% counter += 1 %>
+    <%= %>
   <% end %>
 </section>

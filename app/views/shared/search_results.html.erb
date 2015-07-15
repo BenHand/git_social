@@ -1,0 +1,28 @@
+<h5 class="center-text">Search results for
+  <b><i><%= params[:search].titleize %></i></b>
+</h5>
+<div class="container well">
+  <div class="row">
+    <div class="col s12">
+      <% if @forum_results.count > 0 %>
+        <%= @forum_results.first.topic %>
+      <% else %>
+        <div>0 topics found</div>
+      <% end %>
+    </div>
+    <div class="col s12">
+      <% if @post_results.count > 0 %>
+        <%= @post_results.first.title %>
+      <% else %>
+        <div>0 posts found</div>
+      <% end %>
+    </div>
+    <div class="col s12">
+      <% if @user_results.count > 0 %>
+        <%= @user_results.first.name %>
+      <% else %>
+        <div>0 users found</div>
+      <% end %>
+    </div>
+  </div>
+</div>

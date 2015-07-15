@@ -8,6 +8,7 @@ class ForumsController < ApplicationController
   def show
     @posts = Post.where(forum_id: params[:id])
     @comment = Comment.new
+    @post = Post.new
   end
 
   def new
