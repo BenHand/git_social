@@ -1,4 +1,5 @@
 'use strict';
+/* globals $ */
 
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
@@ -21,8 +22,11 @@
 //= require components
 //= require materialize-sprockets
 //= require_tree .
+
 $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
+    $('.collapsible').collapsible({
+      accordion : false
+    });
   });

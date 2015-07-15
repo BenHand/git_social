@@ -1,12 +1,12 @@
-<h3 class="center-text">Git_Social with Forums</h3>
+<h3 class="center-text">Forums</h3>
 <section class="well container hoverable">
    <table class="bordered">
 
     <thead>
       <tr>
         <th data-field="topic">Topic</th>
-        <th data-field="posts">Posts</th>
-        <th data-field="name">Creator</th>
+        <th class="hide-on-small-only" data-field="posts">Posts</th>
+        <th class="hide-on-small-only" data-field="name">Creator</th>
         <th data-field="post">Last Post</th>
       </tr>
     </thead>
@@ -17,19 +17,40 @@
             <%= link_to forum.topic.titleize,
                 forum_path(forum.id) %>
           </td>
-          <td><%= forum.posts.count %></td>
-          <td>
+          <td class="hide-on-small-only"><%= forum.posts.count %></td>
+          <td class="hide-on-small-only">
             <%= link_to forum.user.name.titleize,
                 profile_main_path(forum.user.id) %>
           </td>
           <td>
-            <%= forum.posts.last.created_at.strftime('%B%e, %Y') %>
+            <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
+<div class="center">
+  <a class="waves-effect waves-light btn modal-trigger green"
+      href="#modal1">
+    New Topic
+  </a>
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>New Topic</h4>
+      <%= form_for create_topic_path do |f| %>
+        <%= f.text_field :topic, autofocus: true %>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close btn-flat waves-effect
+                     waves-light pull-right green white-text"
+                     type="submit" name="action">Post</button>
+      <%= link_to "Discard", "#!",
+            class: "modal-action modal-close btn-flat waves-effect
+                    waves-light pull-left red white-text" %>
+    </div>
+      <% end %>
+  </div>
+</div>
 </section>
 
-  <%= link_to 'New Forum', new_forum_path %>
