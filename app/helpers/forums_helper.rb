@@ -1,8 +1,8 @@
 module ForumsHelper
 
-  def total_comments(posts)
+  def total_comments(input)
     comments = 0
-    posts.each do |post|
+    input.each do |post|
       comments += post.comments.count
     end
     comments

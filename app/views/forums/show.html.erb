@@ -3,8 +3,8 @@
     <div class="col s8 offset-s2">
     <h5 class="center-text"><%= @forum.topic.titleize %></h5>
       <p class="center-text">
-        <b>Posts: </b><%= @posts.count %>
-        <b>Comments: </b><%= total_comments(@posts) %>
+        <b>Posts: </b><%= @forum.posts.count %>
+        <b>Comments: </b><%= total_comments(@forum.posts) %>
       </p>
       <div class="row center-text">
         <%= link_to "New Post", "#modalA", class: 'modal-trigger btn green' %>
@@ -34,7 +34,7 @@
   </div>
   <% if @forum.posts %>
   <% counter = 1 %>
-  <% @posts.each do |post| %>
+  <% @forum.posts.each do |post| %>
     <div class="row well">
       <div class="col s2 hide-on-small-only">
         <%= image_tag(post.user.image, size: '85',

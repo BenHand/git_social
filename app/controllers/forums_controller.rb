@@ -7,7 +7,6 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
-    @posts = Post.where(forum_id: params[:id])
     @comment = Comment.new
     @post = Post.new
   end
