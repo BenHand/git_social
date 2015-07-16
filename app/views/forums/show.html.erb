@@ -44,7 +44,7 @@
         <%= post.created_at.strftime('%B %e, %Y') %>
       </div>
 
-      <div class="col s12 m9 flow-text">
+      <div class="col s12 m9">
         <b><%= post.title.titleize %></b><br>
         <%= post.body %><br>
         <%= link_to post.user.name, profile_main_path(post.user.id),
@@ -82,7 +82,7 @@
           </div>
           <% post.comments.each do |comment| %>
             <div class="row collapsible-body well">
-              <div class="col s2 hide-on-small-only">
+              <div class="col m2 hide-on-small-only">
                 <%= image_tag(comment.user.image, size: '50') %>
                 <%= link_to comment.user.name.split(" ").first,
                     profile_main_path(comment.user.id) %><br>
@@ -90,12 +90,12 @@
                   <%= comment.created_at.strftime('%-m-%d-%y') %>
                 </i>
               </div>
-              <div class="col s9 offset-s1">
+              <div class="col s12 m9 offset-m1">
                 <%= comment.body %><br>
-                <p class="pull-right hide-on-med-and-up">
+                <b class="pull-right hide-on-med-and-up">
                   <%= link_to comment.user.name,
                       profile_main_path(comment.user.id) %>
-                </p>
+                </b>
               </div>
             </div>
           <% end %>
