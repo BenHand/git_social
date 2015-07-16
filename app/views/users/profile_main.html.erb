@@ -1,7 +1,7 @@
-<section class="container well">
-  <div class="row">
+<section class="container well border">
+  <div class="row bg-box">
   <div class="col s12 m8 offset-m2 l6">
-      <ul class="collection with-header border">
+      <ul class="collection with-header">
 
         <li class="collection-header left-align">
           <%= image_tag(@user.image, size: '100') %>
@@ -83,7 +83,7 @@
       </ul>
   </div>
     <div class="col s12 m8 offset-m2 l6">
-      <ul class="collection with-header border">
+      <ul class="collection with-header">
         <li class="collection-header">
           <h5>About Me <i class="green-text">&&</i> GitHub Stats</h5>
         </li>
@@ -120,7 +120,7 @@
     <% counter = 0 %>
     <% @repos.each do |repo| %>
       <div class="col s12 m10 offset-m1 l6">
-        <ul class="collection with-header border">
+        <ul class="collection with-header">
           <li class="collection-header repo-title valign-wrapper">
             <h5>
               <b class="valign">
