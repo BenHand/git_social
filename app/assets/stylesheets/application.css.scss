@@ -3,6 +3,9 @@
 @import 'materialize';
 //You need to now manually import every other scss file.
 
+body{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 .center-text{
   text-align: center;
 }
@@ -11,8 +14,15 @@
 }
 .logo-font{
   margin-left: 10px;
-  margin-top: 5px;
-  font-family: fantasy;
+  font-weight: bold;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+a{
+  color: #4F8B3D;
+  font-weight: bold;
+  &:hover{
+    color: #4CAF50;
+  }
 }
 nav {
   a{

@@ -1,36 +1,86 @@
 <h5 class="center-text">Search results for
   <b><i><%= params[:search].titleize %></i></b>
 </h5>
-<div class="container well">
+<div>
   <div class="row">
-    <div class="col s12">
+    <div class="col s12 m6 l4">
       <% if @forum_results.count > 0 %>
-        <% @forum_results.each do |forum| %>
-          <%= link_to forum.topic.titleize, forum_path(forum.id) %>
-          <%= forum.posts.count %>
-        <% end %>
+        <h5 class="center-text">
+          <%= @forum_results.count %> Topic(s) found.
+        </h5>
+        <ul class="collapsible" data-collapsible="expandable">
+          <% @forum_results.each do |forum| %>
+            <li>
+              <div class="collapsible-header">
+                <%= forum.topic.titleize %>
+              </div>
+              <div class="collapsible-body well">
+                <p>
+                  <b>Posts: </b><%= forum.posts.count %><br>
+                  <b>Comments: </b><%= total_comments(forum.posts) %><br>
+                  <b>Last Post: </b>
+                    <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+                  <br>
+                  <b><%= link_to "View Topic", forum_path(forum.id) %></b>
+                </p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% else %>
-        <div>0 topics found</div>
+        <div><h5>0 topics found</h5></div>
       <% end %>
     </div>
-    <div class="col s12">
+    <div class="col s12 m6 l4">
       <% if @post_results.count > 0 %>
-        <% @post_results.each do |post| %>
-          <%= link_to post.title, forum_path(post.forum.id) %>
-          <%= post.body %>
-        <% end %>
+        <h5 class="center-text">
+          <%= @post_results.count %> Post(s) found.
+        </h5>
+        <ul class="collapsible" data-collapsible="expandable">
+          <% @post_results.each do |post| %>
+            <li>
+              <div class="collapsible-header">
+                <%= post.title %>
+              </div>
+              <div class="collapsible-body well">
+                <%= post.body %><br>
+                <%= post.created_at.strftime('%B %e, %Y') %><br>
+                <b>
+                  <%= link_to "View Topic", forum_path(post.forum.id) %>
+                </b>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% else %>
-        <div>0 posts found</div>
+        <div><h5 class="center-text">0 posts found</h5></div>
       <% end %>
     </div>
-    <div class="col s12">
+    <div class="col s12 m6 l4">
       <% if @user_results.count > 0 %>
-        <% @user_results.each do |user| %>
-          <%= link_to user.name, profile_main_path(user.id) %>
-          <%= link_to user.github_url, user.github_url %>
-        <% end %>
+        <h5 class="center-text">
+          <%= @user_results.count %> User(s) found.
+        </h5>
+        <ul class="collapsible" data-collapsible="expandable">
+          <% @user_results.each do |user| %>
+            <li>
+              <div class="collapsible-header">
+                <%= user.name %>
+              </div>
+              <div class="collapsible-body">
+                <p>
+                  <b>GitHub: </b><%= split_url(user.github_url) %><br>
+                  <b>  Topics: </b><%= user.forums.count %>
+                  <b>  ||  Posts: </b><%= user.posts.count %>
+                  <b>  ||  Comments: </b><%= user.comments.count %><br>
+                  <%= link_to "View Profile", profile_main_path(user.id) %>
+                </p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% else %>
-        <div>0 users found</div>
+        <div><h5 class="center-text">0 users found</h5></div>
       <% end %>
     </div>
   </div>
