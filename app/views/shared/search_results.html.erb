@@ -6,7 +6,7 @@
     <div class="col s12 m6 l4">
       <% if @forum_results.count > 0 %>
         <h5 class="center-text">
-          <%= @forum_results.count %> Topic(s) found.
+          <%= @forum_results.count %> Topic results
         </h5>
         <ul class="collapsible" data-collapsible="expandable">
           <% @forum_results.each do |forum| %>
@@ -34,7 +34,7 @@
     <div class="col s12 m6 l4">
       <% if @post_results.count > 0 %>
         <h5 class="center-text">
-          <%= @post_results.count %> Post(s) found.
+          <%= @post_results.count %> Post results
         </h5>
         <ul class="collapsible" data-collapsible="expandable">
           <% @post_results.each do |post| %>
@@ -59,7 +59,7 @@
     <div class="col s12 m6 l4">
       <% if @user_results.count > 0 %>
         <h5 class="center-text">
-          <%= @user_results.count %> User(s) found.
+          <%= @user_results.count %> User results
         </h5>
         <ul class="collapsible" data-collapsible="expandable">
           <% @user_results.each do |user| %>
@@ -67,7 +67,7 @@
               <div class="collapsible-header">
                 <%= user.name %>
               </div>
-              <div class="collapsible-body">
+              <div class="collapsible-body well">
                 <p>
                   <b>GitHub: </b><%= split_url(user.github_url) %><br>
                   <b>  Topics: </b><%= user.forums.count %>
