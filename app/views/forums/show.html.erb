@@ -1,4 +1,4 @@
-<section class="container">
+<section class="<!-- container -->">
   <div class="row">
     <div class="col s8 offset-s2">
     <h5 class="center-text"><%= @forum.topic.titleize %></h5>
@@ -86,7 +86,9 @@
                 <%= image_tag(comment.user.image, size: '50') %>
                 <%= link_to comment.user.name.split(" ").first,
                     profile_main_path(comment.user.id) %><br>
-                <%= comment.created_at.strftime('%-m-%d-%y') %>
+                <i class="hide-on-med-and-down">
+                  <%= comment.created_at.strftime('%-m-%d-%y') %>
+                </i>
               </div>
               <div class="col s9 offset-s1">
                 <%= comment.body %><br>
