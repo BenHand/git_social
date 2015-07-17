@@ -23,7 +23,11 @@
                 profile_main_path(forum.user.id) %>
           </td>
           <td>
-            <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+            <% if forum.posts %>
+              <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+            <% else %>
+              <p>0 Posts</p>
+            <% end %>
           </td>
         </tr>
       <% end %>
