@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :github_profiles
 
+  def auth_email(auth)
+    if auth.length > 5
+      auth
+    else
+      "changeme#{rand(1..1000000)}@example.com"
+    end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -26,14 +33,6 @@ class User < ActiveRecord::Base
       user.bio        = auth.extra.raw_info.fetch(:bio, "")
       user.save!
       user.create_github_profile(auth)
-    end
-  end
-
-  def auth_email(auth)
-    if auth.length > 5
-      auth
-    else
-      "changeme#{rand(1..1000000)}@example.com"
     end
   end
 
