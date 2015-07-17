@@ -4,4 +4,4 @@ languages:
   Python: true
   PHP: true
 exclude_paths:
-- "app/assets/javascripts"
+- "app/assets/javascripts/*"
