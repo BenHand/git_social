@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email || "changeme#{(1..1000000).sample}@example.com"
+      user.email = auth.info.email || "changeme#{rand(1..1000000)}@example.com"
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.image = auth.info.image
