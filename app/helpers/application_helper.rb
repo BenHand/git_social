@@ -14,7 +14,6 @@ module ApplicationHelper
                 autolink: true,
                 space_after_headers: true,
                 fenced_code_blocks: true,
-                gh_blockcode: true,
                 underline: true,
                 highlight: true,
                 footnotes: true,
