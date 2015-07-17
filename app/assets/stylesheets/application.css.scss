@@ -44,7 +44,8 @@ hr{
   margin-right: 0;
 }
 .bio-box{
-  min-height: 185px;
+  min-height: 253px;
+  font-size: 18px;
 }
 .repo-title{
   min-height: 100px;
@@ -70,9 +71,11 @@ hr{
 }
 .collection{
   border: none;
+  border-radius: 10px;
 }
 .collection-item{
   border-bottom: none !important;
+
 }
 .collection-header{
   border-bottom: none !important;

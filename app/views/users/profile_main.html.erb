@@ -1,11 +1,11 @@
+<h4 class="center-text"><b>About Me
+  <i class="green-text">&&</i> GitHub Stats</b>
+</h4>
 <section class="container well border">
   <div class="row">
   <div class="col s12 m8 offset-m2 l6" style="padding-right: 0">
       <ul class="collection with-header">
-        <% if current_user.id == @user.id %>
-          <%= link_to"<i class='material-icons right'>settings
-              </i>".html_safe, edit_profile_path %>
-        <% end %>
+
         <li class="collection-header left-align">
           <%= image_tag(@user.image, size: '100') %>
 
@@ -84,12 +84,11 @@
   </div>
     <div class="col s12 m8 offset-m2 l6" style="padding-left: 0">
       <ul class="collection with-header">
-        <li class="collection-header">
-          <h5>About Me <i class="green-text">&&</i> GitHub Stats</h5>
-        </li>
 
         <li class="collection-item bio-box valign-wrapper">
-          <p class="valign"><%= @user.bio %></p>
+          <p class="valign">
+            <b>About <%= @user.name.split(" ").first %>: </b><br>
+            <i><%= @user.bio %></i></p>
         </li>
 
         <li class="collection-item">
@@ -116,6 +115,9 @@
     </div>
   </div>
 </section>
+<h4 class="center-text">
+  <br><b>Repositories</b>
+</h4>
 <section class="container well border top-margin">
   <div class="row">
     <% counter = 0 %>
