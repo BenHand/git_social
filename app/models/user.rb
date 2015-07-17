@@ -27,8 +27,7 @@ class User < ActiveRecord::Base
       user.github_url = auth.info.urls.fetch(:GitHub, "")
       user.blog       = auth.info.urls.fetch(:Blog, "")
       user.location   = auth.extra.raw_info.fetch(:location, "")
-      user.bio        = auth.extra.raw_info.fetch(:bio, "edit your profile to change this")
-      user.save!
+      user.bio        = auth.extra.raw_info.bio || ""
       user.create_github_profile(auth)
     end
   end
