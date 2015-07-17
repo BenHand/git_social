@@ -3,7 +3,7 @@
 # GitSocial
   - A Website for coders who use GitHub and want to chat about code.
 
-`
+```
 ▶ tree
 .
 ├── Gemfile
@@ -306,4 +306,4 @@
         └── stylesheets
 
 74 directories, 1791 files
-`
+```
