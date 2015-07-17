@@ -46,7 +46,7 @@
 
       <div class="col s12 m9">
         <b><%= post.title.titleize %></b><br>
-        <%= post.body %><br>
+        <%= markdown(post.body) %><br>
         <%= link_to post.user.name, profile_main_path(post.user.id),
             class: 'pull-left hide-on-med-and-up' %>
       </div>
@@ -91,7 +91,7 @@
                 </i>
               </div>
               <div class="col s12 m9 offset-m1">
-                <%= comment.body %><br>
+                <%= markdown(comment.body) %><br>
                 <b class="pull-right hide-on-med-and-up">
                   <%= link_to comment.user.name,
                       profile_main_path(comment.user.id) %>
