@@ -32,12 +32,12 @@ class User < ActiveRecord::Base
     @auth = auth
     GithubProfile.create({
         user_id:      id,
-        hireable:     auth_raw_info(:hireable),
-        public_repos: auth_raw_info(:public_repos),
-        public_gists: auth_raw_info(:public_gists),
-        followers:    auth_raw_info(:followers),
-        following:    auth_raw_info(:following),
-        created:      auth_raw_info(:created_at),
+        hireable:     auth_raw_info(hireable),
+        public_repos: auth_raw_info(public_repos),
+        public_gists: auth_raw_info(public_gists),
+        followers:    auth_raw_info(followers),
+        following:    auth_raw_info(following),
+        created:      auth_raw_info(created_at),
         access_token: auth[:credentials][:token] })
   end
 
