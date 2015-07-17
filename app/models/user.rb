@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       # TODO: remove hackyness of email hack to account for possible private emails on github
       if auth.info.email != ""
-        user.email = auth.info.email || auth.raw_info.email
+        user.email = auth.info.email || auth.extra.raw_info.email
       else
         user.email = "changeme#{rand(1..1000000)}@example.com"
       end
