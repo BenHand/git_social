@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'materialize';
+@import 'pygments';
 //You need to now manually import every other scss file.
 
 body{
@@ -88,4 +89,8 @@ hr{
 }
 img{
   border-radius: 10px;
+}
+// my-s2 being used to prevent syntax highlighting of 2 column objects
+.my-s2{
+  color: #191919;
 }

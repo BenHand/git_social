@@ -36,7 +36,7 @@
   <% counter = 1 %>
   <% @forum.posts.each do |post| %>
     <div class="row well">
-      <div class="col s2 hide-on-small-only">
+      <div class="col s2 my-s2 hide-on-small-only">
         <%= image_tag(post.user.image, size: '85',
                       class: 'responsive-img') %><br>
         <%= link_to post.user.name.split(" ").first,
