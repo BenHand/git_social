@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   # TODO: Fix sign out to not use a get request
   devise_for :users, :controllers => {
-    :omniauth_callbacks => "users/omniauth_callbacks",
-    :sessions => "users/sign_out"
+    :omniauth_callbacks => "users/omniauth_callbacks"
     }
   authenticate :user do
     resources :comments
