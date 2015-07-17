@@ -21,6 +21,7 @@ gem 'strftime'
 gem 'omniauth-github', '~> 1.1.2', :github => 'intridea/omniauth-github'
 gem 'redcarpet'
 gem 'pygments.rb'
+gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'bullet', group: :development
 gem 'sdoc', '~> 0.4.0', group: :doc
 
