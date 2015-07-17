@@ -16,14 +16,14 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       # TODO: remove hackyness of email hack to account for possible private emails on github
-      user.email      = auth.info.fetch(email, "changeme#{rand(1..1000000)}@example.com")
+      user.email      = auth.info.fetch(:email, "changeme#{rand(1..1000000)}@example.com")
       user.password   = Devise.friendly_token[0,20]
-      user.name       = auth.info.fetch(name, "")
-      user.image      = auth.info.fetch(image, "https://38.media.tumblr.com/avatar_951b22788b15_128.png")
-      user.github_url = auth.info.urls.fetch(GitHub, "")
-      user.blog       = auth.info.urls.fetch(Blog, "")
-      user.location   = auth.extra.raw_info.fetch(location, "")
-      user.bio        = auth.extra.raw_info.fetch(bio, "")
+      user.name       = auth.info.fetch(:name, "")
+      user.image      = auth.info.fetch(:image, "https://38.media.tumblr.com/avatar_951b22788b15_128.png")
+      user.github_url = auth.info.urls.fetch(:GitHub, "")
+      user.blog       = auth.info.urls.fetch(:Blog, "")
+      user.location   = auth.extra.raw_info.fetch(:location, "")
+      user.bio        = auth.extra.raw_info.fetch(:bio, "")
       user.save!
       user.create_github_profile(auth)
     end
