@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => {
-    :omniauth_callbacks => "users/ra"
+    :omniauth_callbacks => "users/omniauth_callbacks"
     }
   authenticate :user do
     resources :comments
