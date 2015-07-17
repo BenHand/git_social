@@ -21,7 +21,7 @@ module ApplicationHelper
   #              }
   #   Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   # end
-
+require 'rouge/plugins/redcarpet'
   class HTML < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
   end
