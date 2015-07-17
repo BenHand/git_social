@@ -17,7 +17,6 @@ module ApplicationHelper
                 underline: true,
                 highlight: true,
                 footnotes: true,
-                gh_blockcode: true,
                 no_intra_emphasis: true
                }
     Redcarpet::Markdown.new(renderer, options).render(content).html_safe
