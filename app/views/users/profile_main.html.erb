@@ -4,12 +4,13 @@
 <section class="container well border">
   <div class="row">
   <div class="col s12 m8 offset-m2 l6" style="padding-right: 0">
-      <ul class="collection with-header">
-        <% if current_user.id == @user.id %>
-          <%= link_to"<i class='material-icons right'>settings
-              </i>".html_safe, edit_profile_path %>
-        <% end %>
-        <li class="collection-header left-align">
+      <ul class="collection with-header"
+          style="border-radius: 10px 0 0 10px">
+          <% if current_user.id == @user.id %>
+            <%= link_to"<i class='material-icons right'>settings
+                </i>".html_safe, edit_profile_path %>
+          <% end %>
+        <li class="collection-header">
           <%= image_tag(@user.image, size: '100') %>
 
           <h5>
@@ -17,18 +18,18 @@
           </h5>
         </li>
 
-        <li class="collection-item">
+        <li class="collection-item imp-info">
           <b>Location: </b>
           <%= @user.location %>
         </li>
 
-        <li class="collection-item">
+        <li class="collection-item imp-info">
           <b>Email: </b>
           <%= mail_to(@user.email) %>
         </li>
 
         <% if @user.github_url.length > 0 %>
-          <li class="collection-item">
+          <li class="collection-item imp-info">
             <b>GitHub: </b>
             <%= link_to split_url(@user.github_url), @user.github_url %>
           </li>
@@ -86,7 +87,8 @@
       </ul>
   </div>
     <div class="col s12 m8 offset-m2 l6" style="padding-left: 0">
-      <ul class="collection with-header">
+      <ul class="collection with-header"
+          style="border-radius: 0 10px 10px 0">
 
         <li class="collection-item bio-box valign-wrapper">
           <p class="valign">
