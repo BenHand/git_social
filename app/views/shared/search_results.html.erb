@@ -12,7 +12,7 @@
           <% @forum_results.each do |forum| %>
             <li>
               <div class="collapsible-header">
-                <%= forum.topic.titleize %>
+                <%= truncate(forum.topic.titleize, length: 40) %>
               </div>
               <div class="collapsible-body well">
                 <p>
@@ -40,7 +40,7 @@
           <% @post_results.each do |post| %>
             <li>
               <div class="collapsible-header">
-                <%= post.title %>
+                <%= truncate(post.title, length: 40) %>
               </div>
               <div class="collapsible-body well">
                 <%= post.body %><br>
