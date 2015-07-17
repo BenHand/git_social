@@ -178,6 +178,7 @@ GEM
       rails (>= 3.1)
       react-source (~> 0.13)
     react-source (0.13.3)
+    redcarpet (3.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sass (3.4.15)
@@ -244,6 +245,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails_12factor
   react-rails
+  redcarpet
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

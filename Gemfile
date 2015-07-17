@@ -19,6 +19,7 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'strftime'
 gem 'omniauth-github', '~> 1.1.2', :github => 'intridea/omniauth-github'
+gem 'redcarpet'
 gem 'bullet', group: :development
 gem 'sdoc', '~> 0.4.0', group: :doc
 
