@@ -2,13 +2,13 @@
   <div class="row">
   <div class="col s12 m8 offset-m2 l6" style="padding-right: 0">
       <ul class="collection with-header">
-
+        <% if current_user.id == @user.id %>
+          <%= link_to"<i class='material-icons right'>settings
+              </i>".html_safe, edit_profile_path %>
+        <% end %>
         <li class="collection-header left-align">
           <%= image_tag(@user.image, size: '100') %>
-          <% if current_user.id == @user.id %>
-            <%= link_to"<i class='material-icons right'>settings
-                </i>".html_safe, edit_profile_path %>
-          <% end %>
+
           <h5>
             <%= @user.name.titleize %>
           </h5>
@@ -139,7 +139,27 @@
                    class="modal bottom-sheet well">
                 <div class="modal-content">
                   <h4><%= repo[:name].titleize %></h4>
-                  <p><%= repo[:description] %></p>
+                  <p><b>Description: </b><%= repo[:description] %></p>
+                  <p>
+                    <i class="material-icons small valign
+                      right-margin icon-color tooltipped"
+                      data-tooltip="Stars">
+                      stars
+                    </i>
+                    <%= repo[:stars] %>
+                    <i class="material-icons small valign
+                              left-pad right-margin icon-color
+                              tooltipped" data-tooltip="Watchers">
+                      visibility
+                    </i>
+                    <%= repo[:watchers] %>
+                    <i class="material-icons small valign
+                              left-pad right-margin icon-color tooltipped"
+                              data-tooltip="Forks">
+                      call_split
+                    </i>
+                    <%= repo[:forks] %>
+                  </p>
                 </div>
                 <div class="modal-footer">
                   <%= link_to "Close", "#!",
@@ -165,29 +185,6 @@
           <li class="collection-item"><b>Updated: </b>
             <%= repo[:updated].strftime('%B %e, %Y') %>
           </li>
-
-      <!-- section for stars / watching / fork count -->
-          <li class="collection-item valign-wrapper">
-            <i class="material-icons small valign
-                      right-margin icon-color tooltipped"
-                      data-tooltip="Stars">
-              stars
-            </i>
-            <%= repo[:stars] %>
-            <i class="material-icons small valign
-                      left-pad right-margin icon-color
-                      tooltipped" data-tooltip="Watchers">
-              visibility
-            </i>
-            <%= repo[:watchers] %>
-            <i class="material-icons small valign
-                      left-pad right-margin icon-color tooltipped"
-                      data-tooltip="Forks">
-              call_split
-            </i>
-            <%= repo[:forks] %>
-          </li>
-
         </ul>
       </div>
     <% counter += 1 %>
