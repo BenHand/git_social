@@ -1,25 +1,30 @@
 module ApplicationHelper
 
-  class HTMLwithPygments < Redcarpet::Render::HTML
-
+  class CodeRayify < Redcarpet::Render::HTML
     def block_code(code, language)
-      Pygments.highlight(code, lexer: language)
+      CodeRay.scan(code, language).div(:line_numbers => :inline)
     end
-
   end
 
-  def markdown(content)
-    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
-    options  = {
-                autolink: true,
-                space_after_headers: true,
-                fenced_code_blocks: true,
-                underline: true,
-                highlight: true,
-                footnotes: true,
-                no_intra_emphasis: true
-               }
-    Redcarpet::Markdown.new(renderer, options).render(content).html_safe
+  def markdown(text)
+    coderayified = CodeRayify.new(:filter_html => true, :hard_wrap => true)
+
+    language ||= :plaintext
+
+    options = {
+              fenced_code_blocks: true,
+              no_intra_emphasis: false,
+              autolink: true,
+              strikethrough: true,
+              lax_html_blocks: true,
+              superscript: true,
+              space_after_headers: true,
+              highlight: true,
+              footnotes: true,
+              }
+
+    markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
+    markdown_to_html.render(text).html_safe
   end
 
 end
