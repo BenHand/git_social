@@ -2,7 +2,16 @@ require 'test_helper'
 
 class ForumsControllerTest < ActionController::TestCase
   setup do
-    @forum = forums(:one)
+    @user = User.create(name: 'test', email: 'test@test.com',
+                    password: 'password', password_confirmation: 'password'
+                    )
+    @forum = Forum.create(topic: 'test_topic', user_id: @user.id)
+    @post  = Post.create(forum_id: @forum.id, user_id: @user.id,
+                           title: 'test_title', body: 'test_body')
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env["HTTP_REFERER"]   = 'http://localhost:3000'
+    @controller.stubs(:current_user).returns(@user)
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,10 +27,11 @@ class ForumsControllerTest < ActionController::TestCase
 
   test "should create forum" do
     assert_difference('Forum.count') do
-      post :create, forum: { topic: @forum.topic, user_id: @forum.user_id }
+      post :create, { '/forums/new' => { topic: 'test_topic' },
+                    user_id: @user.id }
     end
 
-    assert_redirected_to forum_path(assigns(:forum))
+    assert_response :redirect
   end
 
   test "should show forum" do
@@ -35,7 +45,7 @@ class ForumsControllerTest < ActionController::TestCase
   end
 
   test "should update forum" do
-    patch :update, id: @forum, forum: { topic: @forum.topic, user_id: @forum.user_id }
+    patch :update, id: @forum, "/forums/new" => { topic: @forum.topic, user_id: @forum.user_id }
     assert_redirected_to forum_path(assigns(:forum))
   end
 

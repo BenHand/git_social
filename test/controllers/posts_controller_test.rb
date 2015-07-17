@@ -2,7 +2,17 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   setup do
-    @post = posts(:one)
+    @user = User.create(name: 'test', email: 'test@test.com',
+                    password: 'password', password_confirmation: 'password'
+                    )
+    @forum = Forum.create(topic: 'test_topic', user_id: @user.id)
+    @post  = Post.create(forum_id: @forum.id, user_id: @user.id,
+                           title: 'test_title', body: 'test_body')
+    @comment = Comment.create(post_id: @post.id, user_id: @user.id, body: 'test_body')
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env["HTTP_REFERER"]   = 'http://localhost:3000'
+    @controller.stubs(:current_user).returns(@user)
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,10 +28,12 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: { body: @post.body, forum_id: @post.forum_id, title: @post.title, user_id: @post.user_id }
+      post :create, { post: { body: 'testing_body', title: 'testing_title' },
+                  forum_id: @forum.id,
+                   user_id: @user.id }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_response :redirect
   end
 
   test "should show post" do
