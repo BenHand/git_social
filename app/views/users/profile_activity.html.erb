@@ -1,5 +1,14 @@
 <h5>Profile activity page</h5>
 <section class="container well">
-  <div>
+  <div class="row">
+    <div class="col s12 m6 l4">
+      <% @events.each do |event| %>
+        <%= event.repo %><br>
+        <%= event.type %><br>
+        <%= event.message %><br>
+        <%= event.author %><br>
+        <%= event.time %><br>
+        <%= link_to "View Event", event.url %>
+    </div>
   </div>
 </section>

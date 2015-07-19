@@ -7,7 +7,7 @@
         profile_main_path(current_user.id) %>
   </li>
   <li>
-    <%= link_to "Activity", activity_path %>
+    <%= link_to "Activity", activity_path(current_user.id) %>
   </li>
   <li>
     <%= link_to "Log out", destroy_user_session_path %>

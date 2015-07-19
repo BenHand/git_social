@@ -29,11 +29,12 @@ class UsersController < ApplicationController
   end
 
   def profile_activity
-    user = User.find(6)
+    user = User.find(params[:id])
     gh_profile = user.github_profiles[0]
     client = Octokit::Client.new(access_token: gh_profile[:access_token])
     @events = []
-    client.user_events('benhand', limit: 5).take(10).each do |event|
+    client.user_events(split_url(user.github_url), limit: 5)
+          .take(10).each do |event|
       @events << {
                    type: event[:type],
                    repo: event[:repo][:name],
@@ -43,7 +44,6 @@ class UsersController < ApplicationController
                    time: event[:created_at]
                   }
     end
-    render json: @events
   end
 
 private
