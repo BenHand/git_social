@@ -1,7 +1,7 @@
 <h5>Profile activity page</h5>
-<section class="container well">
+<section class="container">
   <div class="row">
-    <div class="col s12 m6 l4">
+    <div class="col s12 m6 l4 well border">
       <% @events.each do |event| %>
         <%= event.repo %><br>
         <%= event.type %><br>
@@ -9,6 +9,7 @@
         <%= event.author %><br>
         <%= event.time %><br>
         <%= link_to "View Event", event.url %>
+      <% end %>
     </div>
   </div>
 </section>
