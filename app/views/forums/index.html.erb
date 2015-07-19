@@ -27,7 +27,7 @@
               <td>
                 <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
               </td>
-              <td>
+              <td class="hide-on-small-only">
                 <%= link_to forum.posts.last.user.name,
                     profile_main_path(forum.posts.last.user.id) %>
               </td>
