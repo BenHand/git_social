@@ -19,4 +19,14 @@ class ApplicationController < ActionController::Base
     render 'shared/search_page'
   end
 
+  def split_url(url)
+    if url.length > 10
+      url.split('/')[-1]
+    else
+      url
+    end
+  end
+
+helper_method :split_url
+
 end
