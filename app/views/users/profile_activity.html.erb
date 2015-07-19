@@ -2,14 +2,23 @@
 <section class="container">
   <div class="row">
     <div class="col s12 m6 l4 well border">
-      <% @events.each do |event| %>
-        <b>Repo: </b><%= split_url(event[:repo]) %><br>
-        <b>Type: </b><%= event[:type] %><br>
-        <b>Message: </b><%= event[:message] %><br>
-        <b>Author: </b><%= event[:author] %><br>
-        <b>Time: </b><%= event[:time].to_strftime('%B %e, %Y') %><br>
-        <%= link_to "View Event", event[:url] %><br>
-      <% end %>
+      <ul class="collection">
+        <% @events.each do |event| %>
+          <li><b>Repo: </b><%= split_url(event[:repo]) %></li>
+          <li><b>Type: </b><%= event[:type] %></li>
+          <li><b>Message: </b><%= event[:message] %></li>
+          <li><b>Author: </b><%= event[:author] %></li>
+          <li><b>Time: </b>
+            <%= event[:time].to_s.to_strftime('%B %e, %Y') %>
+          </li>
+          <li><%= link_to "View Event", event[:url] %></li>>
+        <% end %>
+      </ul>
     </div>
   </div>
 </section>
+      <li class="collection-item">Alvin</li>
+      <li class="collection-item">Alvin</li>
+      <li class="collection-item">Alvin</li>
+      <li class="collection-item">Alvin</li>
+    </ul>
