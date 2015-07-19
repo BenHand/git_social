@@ -1,7 +1,8 @@
 <section>
-  <div class="row"><h5><%= @user.name.pluralize %> Recent Activity</h5>
-    <div class="col s12 m6 l4">
-      <ul class="collection well border">
+  <div class="row">
+    <div class="col s12 m6 l4 border">
+    <h5><%= @user.name.split(" ").first.pluralize %> Recent Activity</h5>
+      <ul class="collection well">
         <% @events.each do |event| %>
           <li class="collection-item">
             <b>Repo: </b><%= split_url(event[:repo]) %>
