@@ -9,7 +9,7 @@
           <li><b>Message: </b><%= event[:message] %></li>
           <li><b>Author: </b><%= event[:author] %></li>
           <li><b>Time: </b>
-            <%= event[:time].to_s.to_strftime('%B %e, %Y') %>
+            <%= event[:time].strftime('%B %e, %Y') %>
           </li>
           <li><%= link_to "View Event", event[:url] %></li>>
         <% end %>
