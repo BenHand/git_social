@@ -1,24 +1,30 @@
 <h5>Profile activity page</h5>
 <section class="container">
-  <div class="row">
+  <div class="row"><h5><%= @user.name.pluralize %> Recent Activity</h5>
     <div class="col s12 m6 l4 well border">
       <ul class="collection">
         <% @events.each do |event| %>
-          <li><b>Repo: </b><%= split_url(event[:repo]) %></li>
-          <li><b>Type: </b><%= event[:type] %></li>
-          <li><b>Message: </b><%= event[:message] %></li>
-          <li><b>Author: </b><%= event[:author] %></li>
-          <li><b>Time: </b>
+          <li class="collection-item">
+            <b>Repo: </b><%= split_url(event[:repo]) %>
+          </li>
+          <li class="collection-item">
+            <b>Type: </b><%= event[:type] %>
+          </li>
+          <li class="collection-item">
+            <b>Message: </b><%= event[:message] %>
+          </li>
+          <li class="collection-item">
+            <b>Author: </b><%= event[:author] %>
+          </li>
+          <li class="collection-item">
+            <b>Time: </b>
             <%= event[:time].strftime('%B %e, %Y') %>
           </li>
-          <li><%= link_to "View Event", event[:url] %></li>>
+          <li class="collection-item">
+            <%= link_to "View Event", event[:url] %>
+          </li>
         <% end %>
       </ul>
     </div>
   </div>
 </section>
-      <li class="collection-item">Alvin</li>
-      <li class="collection-item">Alvin</li>
-      <li class="collection-item">Alvin</li>
-      <li class="collection-item">Alvin</li>
-    </ul>
