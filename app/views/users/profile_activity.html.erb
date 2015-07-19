@@ -3,12 +3,12 @@
   <div class="row">
     <div class="col s12 m6 l4 well border">
       <% @events.each do |event| %>
-        <%= event.repo %><br>
-        <%= event.type %><br>
-        <%= event.message %><br>
-        <%= event.author %><br>
-        <%= event.time %><br>
-        <%= link_to "View Event", event.url %>
+        <%= event[:repo] %><br>
+        <%= event[:type] %><br>
+        <%= event[:message] %><br>
+        <%= event[:author] %><br>
+        <%= event[:time] %><br>
+        <%= link_to "View Event", event[:url] %>
       <% end %>
     </div>
   </div>
