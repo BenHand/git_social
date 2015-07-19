@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     redirect_to profile_main_path(current_user.id)
   end
 
+  def profile_activity
+
+  end
+
 private
 
   def user_params

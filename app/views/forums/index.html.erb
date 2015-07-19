@@ -8,6 +8,7 @@
         <th class="hide-on-small-only" data-field="posts">Posts</th>
         <th class="hide-on-small-only" data-field="name">Creator</th>
         <th data-field="post">Last Post</th>
+        <th data-field="name" class="hide-on-small-only">Poster</th>
       </tr>
     </thead>
     <tbody>
@@ -22,11 +23,17 @@
             <%= link_to forum.user.name.titleize,
                 profile_main_path(forum.user.id) %>
           </td>
-          <td>
-            <% if forum.posts %>
-              <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+            <% if forum.posts.last %>
+              <td>
+                <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+              </td>
+              <td>
+                <%= link_to forum.posts.last.user.name,
+                    profile_main_path(forum.posts.last.user.id) %>
+              </td>
             <% else %>
-              <p>0 Posts</p>
+              <td><p>0 Posts</p></td>
+              <td><p> - </p></td>
             <% end %>
           </td>
         </tr>
