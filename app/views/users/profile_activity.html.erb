@@ -1,8 +1,7 @@
-<h5>Profile activity page</h5>
-<section class="container">
+<section>
   <div class="row"><h5><%= @user.name.pluralize %> Recent Activity</h5>
-    <div class="col s12 m6 l4 border">
-      <ul class="collection well">
+    <div class="col s12 m6 l4">
+      <ul class="collection well border">
         <% @events.each do |event| %>
           <li class="collection-item">
             <b>Repo: </b><%= split_url(event[:repo]) %>
