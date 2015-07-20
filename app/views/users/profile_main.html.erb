@@ -4,7 +4,7 @@
 <section class="container well border">
   <div class="row">
     <div class="col s12 m8 offset-m2 l6 no-pad">
-      <ul class="collection with-header no-radius">
+      <ul class="collection with-header no-radius-left">
         <li class="collection-header">
           <%= image_tag(@user.image, size: '100') %>
           <h5>
@@ -85,7 +85,7 @@
       </ul>
     </div>
     <div class="col s12 m8 offset-m2 l6 no-pad">
-      <ul class="collection with-header no-radius">
+      <ul class="collection with-header no-radius-right">
         <li class="collection-item bio-box valign-wrapper">
           <p class="valign">
             <b>About <%= @user.name.split(" ").first %>: </b><br>

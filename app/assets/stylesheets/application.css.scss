@@ -145,7 +145,10 @@ main{
   .no-pad{
     padding: 0 !important;
   }
-  .no-radius{
-  border-radius: 10px 0 0 10px;
+  .no-radius-left{
+    border-radius: 10px 0 0 10px;
+  }
+  .no-radius-right{
+    border-radius: 0 10px 10px 0;
   }
 }
