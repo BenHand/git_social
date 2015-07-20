@@ -33,16 +33,18 @@ class UsersController < ApplicationController
     gh_profile = @user.github_profiles[0]
     client = Octokit::Client.new(access_token: gh_profile[:access_token])
     @events = []
-    client.user_events(split_url(@user.github_url), limit: 5)
+    client.user_events(split_url(@user.github_url))
           .take(12).each do |event|
-      @events << {
-                   type: event[:type],
-                   repo: event[:repo][:name],
-                message: event[:payload][:commits][0][:message],
-                    url: event[:payload][:commits][0][:url],
-                 author: event[:payload][:commits][0][:author][:name],
-                   time: event[:created_at]
-                  }
+      if event[:type] == "PushEvent"
+        @events << {
+                     type: event[:type],
+                     repo: event[:repo][:name],
+                  message: event[:payload][:commits][0][:message] || "No Message",
+                      url: event[:payload][:commits][0][:url],
+                   author: event[:payload][:commits][0][:author][:name],
+                     time: event[:created_at]
+                    }
+      end
     end
   end
 
