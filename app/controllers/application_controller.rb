@@ -31,6 +31,9 @@ class ApplicationController < ActionController::Base
     "https://github.com/#{repo}/commit/#{split_url(url)}"
   end
 
-helper_method :split_url, :commit_url
+  def to_url(path)
+    "http://www.#{path}"
+  end
+helper_method :split_url, :commit_url, :to_url
 
 end

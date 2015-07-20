@@ -40,7 +40,8 @@
         <% if @user.twitter_url.length > 0 %>
           <li class="collection-item">
             <b>Twitter: </b>
-            <%= link_to split_url(@user.twitter_url), @user.twitter_url %>
+            <%= link_to split_url(@user.twitter_url),
+                to_url(@user.twitter_url) %>
           </li>
         <% else %>
           <li class="collection-item">
@@ -52,7 +53,7 @@
           <li class="collection-item">
             <b>Linkedin: </b>
             <%= link_to split_url(@user.linkedin_url),
-                @user.linkedin_url %>
+                to_url(@user.linkedin_url) %>
           </li>
         <% else %>
           <li class="collection-item">
@@ -64,7 +65,7 @@
           <li class="collection-item">
             <b>Facebook: </b>
             <%= link_to split_url(@user.facebook_url),
-                @user.facebook_url %>
+                to_url(@user.facebook_url) %>
           </li>
         <% else %>
           <li class="collection-item">
@@ -75,7 +76,7 @@
         <% if @user.blog.length > 0 %>
           <li class="collection-item">
             <b>Blog: </b>
-            <%= link_to split_url(@user.blog), @user.blog %>
+            <%= link_to split_url(@user.blog), to_url(@user.blog) %>
           </li>
         <% else %>
           <li class="collection-item">
