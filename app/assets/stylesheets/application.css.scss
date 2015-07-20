@@ -122,6 +122,15 @@ footer{
   }
 }
 
-main {
+main{
     flex: 1 0 auto;
+}
+.tabs .tab a{
+  color: #4F8B3D;
+  &:hover{
+    color: lighten(#4F8B3D, 20%);
   }
+}
+.tabs .indicator{
+  background-color: #4F8B3D;
+}

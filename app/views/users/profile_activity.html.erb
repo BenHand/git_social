@@ -3,34 +3,91 @@
     <h5 class="center-text">
       <%= @user.name.split(" ").first.pluralize %> Recent Activity
     </h5>
-    <% @events.each do |event| %>
-      <div class="col s12 m6 l4">
-        <ul class="collection well">
-          <li class="collection-item">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#GHact">GitHub Activity</a></li>
+        <li class="tab col s3">
+          <a href="#GSpost">Posts</a>
+        </li>
+        <li class="tab col s3"><a href="#GScomment">Comments</a></li>
+      </ul>
+    </div>
+    <div id="GHact" class="row">
+      <% @events.each do |event| %>
+        <div class="col s12 m6 l4">
+          <ul class="collection well">
+            <li class="collection-item">
               <b><%= event[:type] %></b> for
               <%= link_to split_url(event[:repo]).titleize,
                   "http://www.github.com/#{event[:repo]}" %>
-          </li>
-          <li class="collection-item message-item">
-            <b>Message: </b><%= event[:message] %>
-          </li>
-          <li class="collection-item">
-            <b>Author: </b><%= event[:author] %>
-          </li>
-          <li class="collection-item">
-            <b>Time: </b>
-            <%= event[:time].strftime('%B %e, %Y') %>
-          </li>
-          <li class="collection-item">
-            <%= link_to "View Event",
-                commit_url(event[:repo], event[:url]) %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
+            </li>
+            <li class="collection-item message-item">
+              <b>Message: </b><%= event[:message] %>
+            </li>
+            <li class="collection-item">
+              <b>Author: </b><%= event[:author] %>
+            </li>
+            <li class="collection-item">
+              <b>Time: </b>
+              <%= event[:time].strftime('%B %e, %Y') %>
+            </li>
+            <li class="collection-item">
+              <%= link_to "View Event",
+                  commit_url(event[:repo], event[:url]) %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+      <p class="center-text">
+         <%= link_to "All GitHub Activity",
+            @user.github_url + "?tab=activity", class: 'btn green' %>
+      </p>
+    </div>
+    <div id="GSpost" class="row">
+      <% if @user.posts %>
+        <% @user.posts.reverse.each do |post| %>
+          <div class="col s12 m6 l4">
+            <ul class="collection well">
+              <li class="collection-item">
+                <%= link_to post.title, forum_path(post.forum.id) %>
+              </li>
+              <li class="collection-item"><b>Posted: </b>
+                <%= post.created_at.strftime('%B %e, %Y') %>
+              </li>
+              <li class="collection-item"><b>Comments: </b>
+                <%= post.comments.count %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      <% else %>
+        <h5 class="center-text">
+          <%= @user.name.split(" ").first %> has no posts
+        </h5>
+      <% end %>
+    </div>
+    <div id="GScomment" class="row">
+      <% if @user.comments %>
+        <% @user.comments.reverse.each do |comment| %>
+          <div class="col s12 m6 l4">
+            <ul class="collection well">
+              <li class="collection-item">
+                <%= comment.body %>
+              </li>
+              <li class="collection-item">
+                <%= comment.created_at.strftime("%B %e, %Y") %>
+              </li>
+              <li class="collection-item">
+                <%= link_to "View Topic" %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      <% else %>
+        <h5 class="center-text">
+          <%= @user.name.split(" ").first %> has no comments
+        </h5>
+      <% end %>
+    </div>
   </div>
-  <p class="center-text">
-    <%= link_to "All Activity", @user.github_url + "?tab=activity",
-        class: 'btn green' %>
-  </p>
 </section>

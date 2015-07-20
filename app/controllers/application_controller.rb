@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
   def to_url(path)
     "http://www.#{path}"
   end
-helper_method :split_url, :commit_url, :to_url
+
+  helper_method :split_url, :commit_url, :to_url
 
 end
