@@ -12,7 +12,6 @@ Devise.setup do |config|
   config.sign_out_via = :get
 
   # ==> OmniAuth
-  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'],
-                  scope: 'user'
+  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
