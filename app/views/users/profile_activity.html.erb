@@ -22,7 +22,8 @@
             <%= event[:time].strftime('%B %e, %Y') %>
           </li>
           <li class="collection-item">
-            <%= link_to "View Event", event[:url] %>
+            <%= link_to "View Event",
+                commit_url(event[:repo], event[:url]) %>
           </li>
           <hr>
         <% end %>
