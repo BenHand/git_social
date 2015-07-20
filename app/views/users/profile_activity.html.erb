@@ -78,7 +78,8 @@
                 <%= comment.created_at.strftime("%B %e, %Y") %>
               </li>
               <li class="collection-item">
-                <%= link_to "View Topic" %>
+                <%= link_to "View Topic",
+                    forum_path(comment.post.forum_id) %>
               </li>
             </ul>
           </div>
