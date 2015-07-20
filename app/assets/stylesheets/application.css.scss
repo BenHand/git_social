@@ -7,6 +7,10 @@
 body{
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #191919;
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 .center-text{
   text-align: center;
@@ -103,3 +107,21 @@ img{
 .message-item{
   height: 60px;
 }
+.no-pad{
+  padding: 0 !important;
+}
+.no-radius{
+  border-radius: 0;
+}
+footer{
+  a{
+    color: #FEFE9B;
+    &:hover{
+      color: #CCFF90;
+    }
+  }
+}
+
+main {
+    flex: 1 0 auto;
+  }
