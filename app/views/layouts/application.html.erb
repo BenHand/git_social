@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>GitSocial</title>
-  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= stylesheet_link_tag 'application', media: 'all',
+     'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
@@ -28,7 +29,6 @@
           <%= render partial: 'shared/navlinks' %>
         </ul>
       </div>
-
     </nav>
   </header>
   <main>
@@ -36,12 +36,12 @@
   <p class="notice center-text"><%= notice %></p>
   <p class="alert center-text"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <%= javascript_include_tag 'bin/materialize.min.js' %>
-  <%= javascript_include_tag 'application' %>
-</main>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </main>
   <footer class="page-footer light-green darken-3">
     <div class="container">
       <div class="row">
@@ -57,7 +57,7 @@
           <h5 class="white-text">Links</h5>
           <ul>
             <li><%= link_to "Project Repo", "https://github.com/BenHand/git_social" %></li>
-            <li><%= link_to "How to markdown", "https://help.github.com/articles/markdown-basics/" %></li>
+            <li><%= link_to "Markdown in the Forums", "https://help.github.com/articles/markdown-basics/" %></li>
           </ul>
         </div>
       </div>
@@ -73,6 +73,6 @@
         </p>
       </div>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
