@@ -3,7 +3,7 @@
 </li>
 <% if current_user %>
   <li>
-    <%= link_to "#{current_user.name.titleize}",
+    <%= link_to "#{current_user.name.split(" ").first.titleize}",
         profile_main_path(current_user.id) %>
   </li>
   <li>
