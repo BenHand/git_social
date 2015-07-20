@@ -1,17 +1,17 @@
 <section>
   <div class="row">
-    <div class="col s12 m6 l4">
-      <h5 class="center-text">
-        <%= @user.name.split(" ").first.pluralize %> Recent Activity
-      </h5>
-      <ul class="collection well">
-        <% @events.each do |event| %>
+    <h5 class="center-text">
+      <%= @user.name.split(" ").first.pluralize %> Recent Activity
+    </h5>
+    <% @events.each do |event| %>
+      <div class="col s12 m6 l4">
+        <ul class="collection well">
           <li class="collection-item">
               <b><%= event[:type] %></b> for
               <%= link_to split_url(event[:repo]).titleize,
                   "http://www.github.com/#{event[:repo]}" %>
           </li>
-          <li class="collection-item">
+          <li class="collection-item message-item">
             <b>Message: </b><%= event[:message] %>
           </li>
           <li class="collection-item">
@@ -25,9 +25,8 @@
             <%= link_to "View Event",
                 commit_url(event[:repo], event[:url]) %>
           </li>
-          <hr>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </section>
