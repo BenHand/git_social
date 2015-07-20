@@ -1,7 +1,7 @@
 <section class="<!-- container -->">
   <div class="row">
     <div class="col s8 offset-s2">
-    <h5 class="center-text"><%= @forum.topic.titleize %></h5>
+      <h5 class="center-text"><%= @forum.topic.titleize %></h5>
       <p class="center-text">
         <b>Posts: </b><%= @forum.posts.count %>
         <b>Comments: </b><%= total_comments(@forum.posts) %>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="col s12 m9">
-        <b><%= post.title.titleize %></b><br>
+        <b class="title-font"><%= post.title.titleize %></b><br>
         <%= markdown(post.body) %><br>
         <%= link_to post.user.name, profile_main_path(post.user.id),
             class: 'pull-left hide-on-med-and-up' %>
