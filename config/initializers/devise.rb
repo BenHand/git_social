@@ -13,6 +13,6 @@ Devise.setup do |config|
 
   # ==> OmniAuth
   config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'],
-                  provider_ignores_state: true
+                  scope: 'user'
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
