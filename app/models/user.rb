@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:github]
   has_many :friend_lists
   has_many :friend_requests
-  has_many :posts
-  has_many :forums
-  has_many :comments
-  has_many :github_profiles
+  has_many :posts, dependent: :destroy
+  has_many :forums, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :github_profiles, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
