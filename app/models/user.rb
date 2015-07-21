@@ -14,8 +14,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email || auth.extra.raw_info.email ||
-                   "changeme#{Faker::Number.number(6)}@example.com"
+      user.email = auth_email(auth.info.email)
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.image = auth.info.image
@@ -25,6 +24,14 @@ class User < ActiveRecord::Base
       user.bio = auth.extra.raw_info.bio || ""
       user.save!
       user.create_github_profile(auth)
+    end
+  end
+
+  def auth_email(auth)
+    if auth != ""
+      auth
+    else
+      "changeme#{Faker::Number.number(6)}@example.com"
     end
   end
 
