@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 
-      if auth.info.email != ""
+      if auth.info.email != "" && auth.info.email != nil
          user.email = auth.info.email
       else
          user.email = "changeme#{Faker::Number.number(6)}@example.com"
