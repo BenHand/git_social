@@ -10,6 +10,18 @@
   - The Forum is open to all who are logged in. Create topics to chat
     about and within those topics create posts and comments.
 
+## Installation Steps
+
+```
+ *  Fork this repo
+ *  Clone this repo
+ *  Run `bundle install`
+ *  Run `rake db:create` #Will need to have postgres setup and running.
+ *  Register an application to have access to the github API <a href="https://github.com/settings/developers">here</a>.
+ *  Setup <a href="https://github.com/laserlemon/figaro#getting-started">Figaro</a> with your github api keys.
+ *  Run `rails s` to start the server
+```
+
 ## What was used
   - <a href="https://github.com/intridea/omniauth-github">Omniauth-GitHub
     </a> for logging in.
@@ -22,6 +34,8 @@
   - <a href="http://materializecss.com/">Materialize CSS</a> for styling
     and JS.
   - Check out the <a href="https://github.com/BenHand/git_social/blob/master/Gemfile">Gemfile</a> to see all that was used.
+
+
 
 ```
 ▶ tree
