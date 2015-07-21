@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
     }, :skip => [:passwords, :registrations]
+
   authenticate :user do
     resources :comments, :only => [:new, :create]
     resources :posts, :only => [:new, :create]
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
     put '/users/profile/update', to: 'users#update_profile', as: 'update_profile'
     get '/users/profile/:id', to: 'users#profile_main', as: 'profile_main'
   end
+
   root to: 'forums#index'
 end

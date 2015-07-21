@@ -3,6 +3,8 @@
     <div class="col s8 offset-s2">
       <h5 class="center-text"><%= @forum.topic.titleize %></h5>
       <p class="center-text">
+        <b>Topic Creator: </b><%= link_to @forum.user.name,
+           profile_main_path(@forum.user.id) %><br>
         <b>Posts: </b><%= @forum.posts.count %>
         <b>Comments: </b><%= total_comments(@forum.posts) %>
       </p>

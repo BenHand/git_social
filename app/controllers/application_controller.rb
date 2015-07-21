@@ -8,10 +8,12 @@ class ApplicationController < ActionController::Base
   end
 
   def search_results
-    @forum_results = Forum.where("lower(topic) LIKE ?", "%#{params[:search].downcase}%")
+    query = "%#{params[:search].downcase}%"
+    @forum_results = Forum.where("lower(topic) LIKE ?", query)
     @post_results = Post.where("lower(title) LIKE ? OR lower(body) LIKE ?",
-                              "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
-    @user_results = User.where("lower(name) LIKE ?", "%#{params[:search].downcase}%" )
+                              query, query)
+    @user_results = User.where("lower(name) LIKE ? OR
+                    lower(github_url) LIKE ?", query, query)
     render 'shared/search_results'
   end
 
