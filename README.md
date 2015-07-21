@@ -15,28 +15,7 @@
 │   ├── assets
 │   │   ├── font
 │   │   │   ├── material-design-icons
-│   │   │   │   ├── LICENSE.txt
-│   │   │   │   ├── Material-Design-Icons.eot
-│   │   │   │   ├── Material-Design-Icons.svg
-│   │   │   │   ├── Material-Design-Icons.ttf
-│   │   │   │   ├── Material-Design-Icons.woff
-│   │   │   │   └── Material-Design-Icons.woff2
-│   │   │   └── roboto
-│   │   │       ├── Roboto-Bold.ttf
-│   │   │       ├── Roboto-Bold.woff
-│   │   │       ├── Roboto-Bold.woff2
-│   │   │       ├── Roboto-Light.ttf
-│   │   │       ├── Roboto-Light.woff
-│   │   │       ├── Roboto-Light.woff2
-│   │   │       ├── Roboto-Medium.ttf
-│   │   │       ├── Roboto-Medium.woff
-│   │   │       ├── Roboto-Medium.woff2
-│   │   │       ├── Roboto-Regular.ttf
-│   │   │       ├── Roboto-Regular.woff
-│   │   │       ├── Roboto-Regular.woff2
-│   │   │       ├── Roboto-Thin.ttf
-│   │   │       ├── Roboto-Thin.woff
-│   │   │       └── Roboto-Thin.woff2
+│   │   │  
 │   │   ├── images
 │   │   │   ├── GitHub-bw.png
 │   │   │   └── Octocat.png
@@ -85,36 +64,6 @@
 │   │       ├── application.css.scss
 │   │       ├── comments.scss
 │   │       ├── components
-│   │       │   ├── _buttons.scss
-│   │       │   ├── _cards.scss
-│   │       │   ├── _collapsible.scss
-│   │       │   ├── _color.scss
-│   │       │   ├── _dropdown.scss
-│   │       │   ├── _form.scss
-│   │       │   ├── _global.scss
-│   │       │   ├── _grid.scss
-│   │       │   ├── _icons-material-design.scss
-│   │       │   ├── _materialbox.scss
-│   │       │   ├── _mixins.scss
-│   │       │   ├── _modal.scss
-│   │       │   ├── _navbar.scss
-│   │       │   ├── _normalize.scss
-│   │       │   ├── _prefixer.scss
-│   │       │   ├── _preloader.scss
-│   │       │   ├── _roboto.scss
-│   │       │   ├── _sideNav.scss
-│   │       │   ├── _slider.scss
-│   │       │   ├── _table_of_contents.scss
-│   │       │   ├── _tabs.scss
-│   │       │   ├── _toast.scss
-│   │       │   ├── _tooltip.scss
-│   │       │   ├── _typography.scss
-│   │       │   ├── _variables.scss
-│   │       │   ├── _waves.scss
-│   │       │   └── date_picker
-│   │       │       ├── _default.date.scss
-│   │       │       ├── _default.scss
-│   │       │       └── _default.time.scss
 │   │       ├── forums.scss
 │   │       ├── friend_lists.scss
 │   │       ├── friend_requests.scss

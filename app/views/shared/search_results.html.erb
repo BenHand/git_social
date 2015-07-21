@@ -51,7 +51,7 @@
                 <% end %>
               </div>
               <div class="collapsible-body well">
-                <%= post.body %><br>
+                <%= truncate(post.body, length: 160) %><br>
                 <%= post.created_at.strftime('%B %e, %Y') %><br>
                 <b>
                   <%= link_to "View Topic", forum_path(post.forum.id) %>

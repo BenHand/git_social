@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
     }, :skip => [:passwords, :registrations]
 
+  # For demonstration, removed these routes.
   authenticate :user do
     resources :comments, :only => [:new, :create]
     resources :posts, :only => [:new, :create]
