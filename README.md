@@ -18,6 +18,7 @@
  *  Run `bundle install`
  *  Run `rake db:create` #Will need to have postgres setup and running.
  *  Register an application to have access to the github API <a href="https://github.com/settings/developers">here</a>.
+ ![Alt text](app/assets/images/readme_pics/github_app.png?raw=true "Sample App")
  *  Setup <a href="https://github.com/laserlemon/figaro#getting-started">Figaro</a> with your github api keys.
  *  Run `rails s` to start the server
 ```
@@ -247,7 +248,6 @@
 │   ├── 500.html
 │   ├── favicon.ico
 │   └── robots.txt
-├── style.css
 ├── test
 │   ├── controllers
 │   │   ├── comments_controller_test.rb
