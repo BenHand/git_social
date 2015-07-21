@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'forums#index'
+  get "*path", to: redirect('/')
 end
