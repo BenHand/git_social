@@ -18,8 +18,12 @@
                 <p>
                   <b>Posts: </b><%= forum.posts.count %><br>
                   <b>Comments: </b><%= total_comments(forum.posts) %><br>
-                  <b>Last Post: </b>
-                    <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+                  <% if %>
+                    <b>Last Post: </b>
+                      <%= forum.posts.last.created_at.strftime('%B %e, %Y') %>
+                  <% else %>
+                    <b>No posts yet</b>
+                  <% end %>
                   <br>
                   <b><%= link_to "View Topic", forum_path(forum.id) %></b>
                 </p>
