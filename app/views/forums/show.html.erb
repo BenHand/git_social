@@ -45,7 +45,9 @@
       </div>
 
       <div class="col s12 m9">
-        <b class="title-font"><%= post.title.titleize %></b><br>
+        <% if post.title != "" %>
+          <b class="title-font"><%= post.title.titleize %></b><br>
+        <% end %>
         <%= markdown(post.body) %><br>
         <%= link_to post.user.name, profile_main_path(post.user.id),
             class: 'pull-left hide-on-med-and-up' %>
