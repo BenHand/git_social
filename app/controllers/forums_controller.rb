@@ -2,7 +2,7 @@ class ForumsController < ApplicationController
   before_action :set_forum, only: [:show, :edit, :update, :destroy]
 
   def index
-    @forums = Forum.all
+    @forums = Forum.all.order(created_at: :desc)
   end
 
   def show
