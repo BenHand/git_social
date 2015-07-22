@@ -132,7 +132,7 @@
           <li class="collection-header title-pad valign-wrapper">
             <h5>
               <b class="valign">
-                <%= link_to truncate(repo[:name].titleize, length: 24),
+                <%= link_to truncate(repo[:name].titleize, length: 17),
                     repo[:url] %>
               </b>
             </h5>
@@ -141,7 +141,7 @@
           <% if repo[:description] != nil && repo[:description] != "" %>
             <li class="collection-item">
               <b>Description: </b>
-              <%= link_to truncate(repo[:description], length: 22),
+              <%= link_to truncate(repo[:description], length: 21),
                   "#modal#{counter}", class: 'modal-trigger' %>
               <div id="modal<%= "#{counter}" %>"
                    class="modal bottom-sheet well">

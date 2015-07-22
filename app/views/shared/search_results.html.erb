@@ -50,6 +50,7 @@
                 <% else %>
                   <%= truncate(post.body, length: 40) %>
                 <% end %>
+                <i class="material-icons pull-right">trending_flat</i>
               </div>
               <div class="collapsible-body well">
                 <%= truncate(post.body, length: 160) %><br>
@@ -75,6 +76,7 @@
             <li>
               <div class="collapsible-header">
                 <%= user.name %>
+                <i class="material-icons pull-right">trending_flat</i>
               </div>
               <div class="collapsible-body well">
                 <p>
