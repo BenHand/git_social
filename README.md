@@ -9,6 +9,7 @@
     activity will also be displayed.
   - The Forum is open to all who are logged in. Create topics to chat
     about and within those topics create posts and comments.
+  - Check out the live site <a href="www.gitsocial.net">here</a>.
 
 ## What was used
   - <a href="https://github.com/intridea/omniauth-github">Omniauth-GitHub
