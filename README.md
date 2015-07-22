@@ -39,7 +39,19 @@
   - trello <a href="https://trello.com/b/bsfL4d7O/final-project">scrum board</a>
   - UML (excluding currently unused models)
    ![Alt text](app/assets/images/readme_pics/UML.png?raw=true "UML")
+  - model relations
+  ```
+    _User_                        _GitHub_Profile_
+    has_many :github_profiles     belongs_to :user
+    has_many :forums
+    has_many :posts
+    has_many :comments
 
+    _Forum_                _Post_                   _Comment_
+    belongs_to :user       belongs_to :user         belongs_to :user
+    has_many   :posts      belongs_to :forum        belongs_to :post
+                           has_many   :comments
+  ```
 ## File Structure
 ```
 ▶ tree
