@@ -5,7 +5,7 @@
     Through the use of omniauth users can login through github and
     a profile is created to display their information. Includes stats
     on repo counts as well as creation date of github account. Through
-    the use of the github api and octokit users repos and recent github
+    the use of the github api and octokit, users repos and recent github
     activity will also be displayed.
   - The Forum is open to all who are logged in. Create topics to chat
     about and within those topics create posts and comments.
@@ -35,8 +35,10 @@
     and JS.
   - Check out the <a href="https://github.com/BenHand/git_social/blob/master/Gemfile">Gemfile</a> to see all that was used.
 
-## link_to
+## more info
   - trello <a href="https://trello.com/b/bsfL4d7O/final-project">scrum board</a>
+  - UML (excluding currently unused models)
+   ![Alt text](app/assets/images/readme_pics/UML.png?raw=true "UML")
 
 ## File Structure
 ```
