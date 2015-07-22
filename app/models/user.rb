@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 
       if auth.info.email.blank?
-         user.email = "changeme#{Faker::Number.number(6)}@example.com"
+         user.email = "changeme#{rand(1..1000000)}@example.com"
       else
          user.email = auth.info.email
       end
