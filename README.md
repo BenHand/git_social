@@ -22,7 +22,7 @@
   - <a href="http://materializecss.com/">Materialize CSS</a> for styling
     and JS.
   - Check out the <a href="https://github.com/BenHand/git_social/blob/master/Gemfile">Gemfile</a> to see all that was used.
-  - Rails
+  - Rails (4.2.3)
   - Hosting by Heroku
   - Postgresql Database
   - Puma webserver
