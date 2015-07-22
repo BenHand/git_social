@@ -129,9 +129,9 @@
     <% @repos.each do |repo| %>
       <div class="col s12 m10 offset-m1 l6">
         <ul class="collection with-header">
-          <li class="collection-header title-pad valign-wrapper">
+          <li class="collection-header valign-wrapper">
             <h5>
-              <b class="valign">
+              <b class="title-pad valign">
                 <%= link_to truncate(repo[:name].titleize, length: 17),
                     repo[:url] %>
               </b>
@@ -141,7 +141,7 @@
           <% if repo[:description] != nil && repo[:description] != "" %>
             <li class="collection-item">
               <b>Description: </b>
-              <%= link_to truncate(repo[:description], length: 21),
+              <%= link_to truncate(repo[:description], length: 20),
                   "#modal#{counter}", class: 'modal-trigger' %>
               <div id="modal<%= "#{counter}" %>"
                    class="modal bottom-sheet well">
