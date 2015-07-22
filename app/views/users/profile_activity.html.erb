@@ -72,7 +72,7 @@
           <div class="col s12 m6 l4">
             <ul class="collection well">
               <li class="collection-item">
-                <%= comment.body %>
+                <%= truncate(comment.body, length: 90) %>
               </li>
               <li class="collection-item">
                 <%= comment.created_at.strftime("%B %e, %Y") %>
