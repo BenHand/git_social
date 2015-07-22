@@ -137,6 +137,9 @@ main{
 .title-font{
   font-size: 18px;
 }
+.collection .collection-item:last-child{
+  padding-bottom: 25px;
+}
 @media (max-width: 600px) {
   .collapsible-body p{
     padding: 0;
