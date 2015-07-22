@@ -53,8 +53,8 @@
                            has_many   :comments
   ```
   - white board wire frames
-  ![Alt text](app/assets/images/readme_pics/wire_frame1.png?raw=true "WF1")
-  ![Alt text](app/assets/images/readme_pics/wire_frame2.png?raw=true "WF2")
+  ![Alt text](app/assets/images/readme_pics/wire_frame1.jpg?raw=true "WF1")
+  ![Alt text](app/assets/images/readme_pics/wire_frame2.jpg?raw=true "WF2")
 
 ## File Structure
 ```
