@@ -54,7 +54,6 @@
   ```
 ## File Structure
 ```
-▶ tree
 .
 ├── Gemfile
 ├── Gemfile.lock
