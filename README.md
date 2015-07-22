@@ -22,6 +22,7 @@
     syntax highlighting of code in posts and comments.
   - <a href="http://materializecss.com/">Materialize CSS</a> for styling
     and JS.
+  - <a href="https://github.com/samsonjs/strftime">strftime</a> for datetime formatting.
   - Check out the <a href="https://github.com/BenHand/git_social/blob/master/Gemfile">Gemfile</a> to see all that was used.
   - Rails (4.2.3)
   - Hosting by Heroku
