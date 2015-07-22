@@ -71,7 +71,7 @@
         <% @user.comments.reverse.each do |comment| %>
           <div class="col s12 m6 l4">
             <ul class="collection well">
-              <li class="collection-item">
+              <li class="collection-item comment-item">
                 <%= truncate(comment.body, length: 90) %>
               </li>
               <li class="collection-item">
