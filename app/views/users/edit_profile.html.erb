@@ -19,7 +19,7 @@
         </div>
         <div class="input-field">
           <%= f.label :About_You %>
-          <%= f.text_area :bio, id: 'textarea1',
+          <%= f.text_area :bio, maxlength: 180, id: 'textarea1',
               class: 'materialize-textarea', value: @users.bio %>
         </div>
       </div>
