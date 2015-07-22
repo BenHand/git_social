@@ -126,33 +126,14 @@
 ├── config              (3 directories, 21 files)
 ├── config.ru
 ├── coverage
-├── db
-│   ├── migrate
-│   │   ├── 20150707144738_devise_create_users.rb
-│   │   ├── 20150707160205_create_forums.rb
-│   │   ├── 20150707160314_create_posts.rb
-│   │   ├── 20150707160412_create_comments.rb
-│   │   ├── 20150707162455_create_friend_requests.rb
-│   │   ├── 20150707162600_create_friend_lists.rb
-│   │   ├── 20150707164524_add_columns_to_users.rb
-│   │   ├── 20150707172640_add_column_to_users.rb
-│   │   ├── 20150708165119_add_fields_to_users.rb
-│   │   ├── 20150708183658_create_github_profiles.rb
-│   │   └── 20150708190236_add_column_to_github_profile.rb
-│   ├── schema.rb
-│   └── seeds.rb
+├── db                  (1 directory, 13 files)
 ├── lib
 │   ├── assets
 │   └── tasks
 ├── log
 │   ├── development.log
 │   └── test.log
-├── public
-│   ├── 404.html
-│   ├── 422.html
-│   ├── 500.html
-│   ├── favicon.ico
-│   └── robots.txt
+├── public              (0 directories, 5 files)
 ├── test                (6 directories, 21 files)
 └── vendor
     └── assets
