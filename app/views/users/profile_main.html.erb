@@ -129,10 +129,11 @@
     <% @repos.each do |repo| %>
       <div class="col s12 m10 offset-m1 l6">
         <ul class="collection with-header">
-          <li class="collection-header repo-title valign-wrapper">
+          <li class="collection-header valign-wrapper">
             <h5>
               <b class="valign">
-                <%= link_to repo[:name].titleize, repo[:url] %>
+                <%= link_to truncate(repo[:name].titleize, length: 24),
+                    repo[:url] %>
               </b>
             </h5>
           </li>
