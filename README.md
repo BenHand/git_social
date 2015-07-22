@@ -13,7 +13,7 @@
 
 ## What was used
   - <a href="https://github.com/intridea/omniauth-github">Omniauth-GitHub
-    </a> for logging in.
+    </a> as well as <a href="https://github.com/plataformatec/devise">devise</a> for logging in.
   - <a href="https://github.com/octokit/octokit.rb">Octokit.rb</a> for
     creating user profile and github profile as well as retreiving pertanent user information.
   - <a href="https://github.com/vmg/redcarpet">Redcarpet</a> for markdown
