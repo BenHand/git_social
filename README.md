@@ -67,64 +67,12 @@
 ├── app
 │   ├── assets
 │   │   ├── font
-│   │   │   ├── material-design-icons
-│   │   │  
+│   │   │   └── material-design-icons
 │   │   ├── images
 │   │   │   ├── GitHub-bw.png
 │   │   │   └── Octocat.png
-│   │   ├── javascripts
-│   │   │   ├── animation.js
-│   │   │   ├── application.js
-│   │   │   ├── bin
-│   │   │   │   ├── materialize.js
-│   │   │   │   └── materialize.min.js
-│   │   │   ├── buttons.js
-│   │   │   ├── cards.js
-│   │   │   ├── character_counter.js
-│   │   │   ├── collapsible.js
-│   │   │   ├── comments.coffee
-│   │   │   ├── components
-│   │   │   ├── components.js
-│   │   │   ├── date_picker
-│   │   │   │   ├── picker.date.js
-│   │   │   │   └── picker.js
-│   │   │   ├── dropdown.js
-│   │   │   ├── forms.js
-│   │   │   ├── forums.coffee
-│   │   │   ├── friend_lists.coffee
-│   │   │   ├── friend_requests.coffee
-│   │   │   ├── global.js
-│   │   │   ├── hammer.min.js
-│   │   │   ├── jquery.easing.1.3.js
-│   │   │   ├── jquery.hammer.js
-│   │   │   ├── leanModal.js
-│   │   │   ├── materialbox.js
-│   │   │   ├── parallax.js
-│   │   │   ├── posts.coffee
-│   │   │   ├── pushpin.js
-│   │   │   ├── scrollFire.js
-│   │   │   ├── scrollspy.js
-│   │   │   ├── sideNav.js
-│   │   │   ├── slider.js
-│   │   │   ├── tabs.js
-│   │   │   ├── toasts.js
-│   │   │   ├── tooltip.js
-│   │   │   ├── transitions.js
-│   │   │   ├── users.coffee
-│   │   │   ├── velocity.min.js
-│   │   │   └── waves.js
-│   │   └── stylesheets
-│   │       ├── application.css.scss
-│   │       ├── comments.scss
-│   │       ├── components
-│   │       ├── forums.scss
-│   │       ├── friend_lists.scss
-│   │       ├── friend_requests.scss
-│   │       ├── materialize.scss
-│   │       ├── posts.scss
-│   │       ├── pygments.scss.erb
-│   │       ├── scaffolds.scss
-│   │       └── users.scss
+│   │   ├── javascripts (3 directories, 38 files)
+│   │   └── stylesheets (2 directories, 39 files)
 │   ├── controllers
 │   │   ├── application_controller.rb
 │   │   ├── comments_controller.rb
@@ -155,88 +103,20 @@
 │   │   ├── post.rb
 │   │   └── user.rb
 │   └── views
-│       ├── comments
-│       │   ├── _form.html.erb
-│       │   ├── edit.html.erb
-│       │   ├── index.html.erb
-│       │   ├── index.json.jbuilder
-│       │   ├── new.html.erb
-│       │   ├── show.html.erb
-│       │   └── show.json.jbuilder
-│       ├── devise
-│       │   ├── confirmations
-│       │   │   └── new.html.erb
-│       │   ├── mailer
-│       │   │   ├── confirmation_instructions.html.erb
-│       │   │   ├── reset_password_instructions.html.erb
-│       │   │   └── unlock_instructions.html.erb
-│       │   ├── passwords
-│       │   │   ├── edit.html.erb
-│       │   │   └── new.html.erb
-│       │   ├── registrations
-│       │   │   ├── edit.html.erb
-│       │   │   └── new.html.erb
-│       │   ├── sessions
-│       │   │   └── new.html.erb
-│       │   ├── shared
-│       │   │   └── _links.html.erb
-│       │   └── unlocks
-│       │       └── new.html.erb
-│       ├── forums
-│       │   ├── _form.html.erb
-│       │   ├── edit.html.erb
-│       │   ├── index.html.erb
-│       │   ├── new.html.erb
-│       │   └── show.html.erb
-│       ├── friend_lists
-│       ├── friend_requests
-│       ├── layouts
-│       │   └── application.html.erb
-│       ├── posts
-│       │   ├── _form.html.erb
-│       │   ├── edit.html.erb
-│       │   ├── index.html.erb
-│       │   ├── new.html.erb
-│       │   └── show.html.erb
-│       ├── shared
-│       │   ├── _navlinks.html.erb
-│       │   ├── _search.html.erb
-│       │   ├── search_page.html.erb
-│       │   └── search_results.html.erb
-│       └── users
-│           ├── edit_profile.html.erb
-│           └── profile_main.html.erb
+│       ├── comments    (0 directories, 7 files)
+│       ├── devise      (7 directories, 11 files)
+│       ├── forums      (0 directories, 5 files)
+│       ├── layouts     (0 directories, 1 file)
+│       ├── posts       (0 directories, 5 files)
+│       ├── shared      (0 directories, 4 files)
+│       └── users       (0 directories, 3 files)
 ├── bin
 │   ├── bundle
 │   ├── rails
 │   ├── rake
 │   ├── setup
 │   └── spring
-├── config
-│   ├── application.rb
-│   ├── application.yml
-│   ├── boot.rb
-│   ├── database.yml
-│   ├── environment.rb
-│   ├── environments
-│   │   ├── development.rb
-│   │   ├── production.rb
-│   │   └── test.rb
-│   ├── initializers
-│   │   ├── assets.rb
-│   │   ├── backtrace_silencers.rb
-│   │   ├── cookies_serializer.rb
-│   │   ├── devise.rb
-│   │   ├── filter_parameter_logging.rb
-│   │   ├── inflections.rb
-│   │   ├── mime_types.rb
-│   │   ├── session_store.rb
-│   │   └── wrap_parameters.rb
-│   ├── locales
-│   │   ├── devise.en.yml
-│   │   └── en.yml
-│   ├── routes.rb
-│   └── secrets.yml
+├── config              (3 directories, 21 files)
 ├── config.ru
 ├── coverage
 ├── db
@@ -266,45 +146,11 @@
 │   ├── 500.html
 │   ├── favicon.ico
 │   └── robots.txt
-├── test
-│   ├── controllers
-│   │   ├── comments_controller_test.rb
-│   │   ├── forums_controller_test.rb
-│   │   ├── friend_lists_controller_test.rb
-│   │   ├── friend_requests_controller_test.rb
-│   │   ├── posts_controller_test.rb
-│   │   └── users_controller_test.rb
-│   ├── fixtures
-│   │   ├── comments.yml
-│   │   ├── forums.yml
-│   │   ├── friend_lists.yml
-│   │   ├── friend_requests.yml
-│   │   ├── github_profiles.yml
-│   │   ├── posts.yml
-│   │   └── users.yml
-│   ├── helpers
-│   ├── integration
-│   ├── mailers
-│   ├── models
-│   │   ├── comment_test.rb
-│   │   ├── forum_test.rb
-│   │   ├── friend_list_test.rb
-│   │   ├── friend_request_test.rb
-│   │   ├── github_profile_test.rb
-│   │   ├── post_test.rb
-│   │   └── user_test.rb
-│   └── test_helper.rb
-│   ├── pids
-│   │   └── server.pid
-│   ├── react-rails
-│   │   ├── JSXTransformer.js
-│   │   └── react.js
-│   ├── sessions
-│   └── sockets
+├── test                (6 directories, 21 files)
 └── vendor
     └── assets
         ├── javascripts
         └── stylesheets
 
-74 directories, 1791 files
+Project Total: 74 directories, 1791 files
 ```
