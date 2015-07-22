@@ -26,6 +26,7 @@
   - Hosting by Heroku
   - Postgresql Database
   - Puma webserver
+  - Sass
 
 ## Installation Steps
 
