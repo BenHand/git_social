@@ -2,7 +2,6 @@
 @import 'bootstrap';
 @import 'materialize';
 @import 'pygments';
-//You need to now manually import every other scss file.
 
 body{
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -53,7 +52,7 @@ hr{
   font-size: 18px;
 }
 .title-pad{
- padding-left: 5px;
+ padding-left: 10px;
 }
 .left-pad{
   padding-left: 40px;
@@ -107,7 +106,6 @@ img{
 .message-item{
   height: 60px;
 }
-
 .no-radius{
   border-radius: 10px;
 }
