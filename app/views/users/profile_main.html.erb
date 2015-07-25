@@ -7,10 +7,11 @@
       <ul class="collection with-header no-radius-left">
         <li class="collection-header">
           <%= image_tag(@user.image, size: '100') %>
+          <%= link_to "<i class='glyphicon glyphicon-user' aria-hidden='true'></i><i class='glyphicon glyphicon-plus' aria-hidden='true'></i>".html_safe, "#"%>
           <h5>
             <%= @user.name.titleize %>
             <% if current_user.id == @user.id %>
-              <%= link_to"<i class='material-icons'>settings
+              <%= link_to"<i class='material-icons right'>settings
                   </i>".html_safe, edit_profile_path %>
             <% end %>
           </h5>
